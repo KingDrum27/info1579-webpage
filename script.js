@@ -48,16 +48,16 @@ let coursePercentRemaining = ((totalModules - completedModules) / totalModules) 
 
 // TODO: Display your results. Use the correct variables and avoid hard-coding the data below.
 // TODO: Adjust all decimals to two places.
-display("Welcome Message: " + outputMessage);
-display("My Name: " + userName);
-display("Enrolled: " + isEnrolled);
-display("Total Modules: " + totalModules);
-display("Total Study Hours: " + totalStudyHours);
-display("Daily Study Hours (7 days): " + dailyStudyHours.toFixed(2));
-display("Daily Study Minutes (7 days): " + dailyStudyMinutes.toFixed(2));
-display("Daily Study Hours (with rest day): " + adjustedDailyHours.toFixed(2));
-display("Daily Study Minutes (with rest day): " + adjustedDailyMinutes.toFixed(2));
+display("Welcome Message" , outputMessage);
+display("My Name" , userName);
+display("Enrolled" , isEnrolled);
+display("Total Modules" , totalModules);
+display("Total Study Hours" , totalStudyHours);
+display("Daily Study Hours (7 days)" , dailyStudyHours.toFixed(2));
+display("Daily Study Minutes (7 days)" , dailyStudyMinutes.toFixed(2));
+display("Daily Study Hours (with rest day)" , adjustedDailyHours.toFixed(2));
+display("Daily Study Minutes (with rest day)" , adjustedDailyMinutes.toFixed(2));
 
 // TODO: Display your results with a % sign
-display("Percent Complete: " + coursePercentComplete.toFixed(2) + "%");
-display("Percent Remaining: " + coursePercentRemaining.toFixed(2) + "%");
+display("Percent Complete" , coursePercentComplete.toFixed(2) + "%");
+display("Percent Remaining" , coursePercentRemaining.toFixed(2) + "%");
