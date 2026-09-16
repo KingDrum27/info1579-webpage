@@ -18,7 +18,7 @@ const display = (label, value) =>
 // ADD YOUR CODE BELOW
 
 // TODO: Create variables for your name (string), total number of modules for our class (number), and if you're enrolled (boolean)
-let userName = "Camden";
+const userName = "Camden";
 let totalModules = 10;
 let isEnrolled = true;
 
