@@ -41,11 +41,28 @@ let adjustedDailyMinutes = (adjustedDailyHours * 60);
 
 // Calculate
 
-let completedModules = 2;
+let completedModules = prompt("Enter the number of completed modules (1-10): ");
 let coursePercentComplete = (completedModules / totalModules) * 100;
 let coursePercentRemaining = ((totalModules - completedModules) / totalModules) * 100;
 
+if (coursePercentRemaining == 0){
+  console.log("Current Progress: Finished!");
+}
+else if (coursePercentRemaining >= 1 && coursePercentRemaining < 25) {
+  console.log("Current Progress: Almost Finished!");
+}
+else if (coursePercentRemaining >= 25 && coursePercentRemaining < 75) {
+  console.log("Current Progress: Making Progress");
+}
+else if (coursePercentRemaining >= 75 && coursePercentRemaining <= 100) {
+  console.log("Current Progress: Just Getting Started")
+}
+else {
+  console.log("Invalid entry.");
+}
 // DISPLAY RESULTS
+
+
 
 // TODO: Display your results. Use the correct variables and avoid hard-coding the data below.
 // TODO: Adjust all decimals to two places.
