@@ -45,6 +45,8 @@ let completedModules = prompt("Enter the number of completed modules (1-10): ");
 let coursePercentComplete = (completedModules / totalModules) * 100;
 let coursePercentRemaining = ((totalModules - completedModules) / totalModules) * 100;
 
+// Calculate courseProgress
+
 let courseProgress;
 
 if (coursePercentRemaining == 0){
@@ -62,6 +64,8 @@ else if (coursePercentRemaining >= 75 && coursePercentRemaining <= 100) {
 else {
   courseProgress = "Invalid entry.";
 }
+
+// Calculate courseGrade
 
 let courseGrade;
 
@@ -84,8 +88,12 @@ else {
   courseGrade = "Invalid entry";
 }
 
+// Variables
+
 let studyPlan;
 let studyDay;
+
+// What day is it?
 
 if (coursePercentComplete === 100) {
   studyDay = "Complete";
@@ -94,32 +102,34 @@ else {
   studyDay = prompt("Enter the current day: ");
 }
 
+// Based on the day, what is the study plan?
+
 switch (studyDay) {
   case "Sunday":
-    studyPlan = `Today is your study day! Study for ${adjustedDailyMinutes} minutes today`;
+    studyPlan = `Today is your study day! Study for ${adjustedDailyMinutes.toFixed(2)} minutes today`;
   break;
 
   case "Monday":
     studyPlan = "Today is your rest day!";
     break;
   case "Tuesday":
-    studyPlan = `Today is your lab day! Study for ${adjustedDailyMinutes} minutes today. `;
+    studyPlan = `Today is your lab day! Study for ${adjustedDailyMinutes.toFixed(2)} minutes today. `;
     break;
 
   case "Wednesday":
-    studyPlan = `Today is your applied programming activity day! Study for ${adjustedDailyMinutes} minutes today. `;
+    studyPlan = `Today is your applied programming activity day! Study for ${adjustedDailyMinutes.toFixed(2)} minutes today. `;
     break;
 
   case "Thursday":
-    studyPlan = `Today is a work day! Study for ${adjustedDailyMinutes} minutes today.`;
+    studyPlan = `Today is a work day! Study for ${adjustedDailyMinutes.toFixed(2)} minutes today.`;
     break;
 
   case "Friday":
-    studyPlan = `Today is a travel day! In the car, study for ${adjustedDailyMinutes} minutes today.`;
+    studyPlan = `Today is a travel day! In the car, study for ${adjustedDailyMinutes.toFixed(2)} minutes today.`;
     break;
 
   case "Saturday":
-    studyPlan = `Today is another study day! Study for ${adjustedDailyMinutes} minutes today`;
+    studyPlan = `Today is another study day! Study for ${adjustedDailyMinutes.toFixed(2)} minutes today`;
     break;
 
   case "Complete":
@@ -133,11 +143,6 @@ switch (studyDay) {
 
 // DISPLAY RESULTS
 
-
-
-// TODO: Display your results. Use the correct variables and avoid hard-coding the data below.
-// TODO: Adjust all decimals to two places.
-
 display("Welcome Message" , outputMessage);
 display("My Name" , userName);
 display("Enrolled" , isEnrolled);
@@ -148,10 +153,11 @@ display("Daily Study Minutes (7 days)" , dailyStudyMinutes.toFixed(2));
 display("Daily Study Hours (with rest day)" , adjustedDailyHours.toFixed(2));
 display("Daily Study Minutes (with rest day)" , adjustedDailyMinutes.toFixed(2));
 
-// TODO: Display your results with a % sign
 
 display("Percent Complete" , coursePercentComplete.toFixed(2) + "%");
 display("Percent Remaining" , coursePercentRemaining.toFixed(2) + "%");
+
+
 display("Course Progress", courseProgress);
 display("Course Grade", courseGrade);
 display("Study Day", studyDay);
