@@ -48,16 +48,16 @@ let coursePercentRemaining = ((totalModules - completedModules) / totalModules) 
 let courseProgress;
 
 if (coursePercentRemaining == 0){
-  courseProgress = "Current Progress: Finished!";
+  courseProgress = "Finished!";
 }
 else if (coursePercentRemaining >= 1 && coursePercentRemaining < 25) {
-  courseProgress = "Current Progress: Almost Finished!";
+  courseProgress = "Almost Finished!";
 }
 else if (coursePercentRemaining >= 25 && coursePercentRemaining < 75) {
-  courseProgress = "Current Progress: Making Progress";
+  courseProgress = "Making Progress";
 }
 else if (coursePercentRemaining >= 75 && coursePercentRemaining <= 100) {
-  courseProgress = "Current Progress: Just Getting Started";
+  courseProgress = "Just Getting Started";
 }
 else {
   courseProgress = "Invalid entry.";
