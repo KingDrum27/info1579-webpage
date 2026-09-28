@@ -158,7 +158,7 @@ display("Percent Complete" , coursePercentComplete.toFixed(2) + "%");
 display("Percent Remaining" , coursePercentRemaining.toFixed(2) + "%");
 
 
-display("Course Progress", courseProgress);
+display("Current Progress", courseProgress);
 display("Course Grade", courseGrade);
 display("Study Day", studyDay);
 display("Study Plan", studyPlan);
