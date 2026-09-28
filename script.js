@@ -45,21 +45,92 @@ let completedModules = prompt("Enter the number of completed modules (1-10): ");
 let coursePercentComplete = (completedModules / totalModules) * 100;
 let coursePercentRemaining = ((totalModules - completedModules) / totalModules) * 100;
 
+let courseProgress;
+
 if (coursePercentRemaining == 0){
-  console.log("Current Progress: Finished!");
+  courseProgress = "Current Progress: Finished!";
 }
 else if (coursePercentRemaining >= 1 && coursePercentRemaining < 25) {
-  console.log("Current Progress: Almost Finished!");
+  courseProgress = "Current Progress: Almost Finished!";
 }
 else if (coursePercentRemaining >= 25 && coursePercentRemaining < 75) {
-  console.log("Current Progress: Making Progress");
+  courseProgress = "Current Progress: Making Progress";
 }
 else if (coursePercentRemaining >= 75 && coursePercentRemaining <= 100) {
-  console.log("Current Progress: Just Getting Started")
+  courseProgress = "Current Progress: Just Getting Started";
 }
 else {
-  console.log("Invalid entry.");
+  courseProgress = "Invalid entry.";
 }
+
+let courseGrade;
+
+if (coursePercentComplete < 60) {
+  courseGrade = "F";
+}
+else if (coursePercentComplete >= 60 && coursePercentComplete < 70) {
+  courseGrade = "D";
+}
+else if (coursePercentComplete >= 70 && coursePercentComplete < 80) {
+  courseGrade = "C";
+}
+else if (coursePercentComplete >= 80 && coursePercentComplete < 90) {
+  courseGrade = "B";
+}
+else if (coursePercentComplete >= 90 && coursePercentComplete <= 100) {
+  courseGrade = "A";
+}
+else {
+  courseGrade = "Invalid entry";
+}
+
+let studyPlan;
+let studyDay;
+
+if (coursePercentComplete === 100) {
+  studyDay = "Complete";
+} 
+else {
+  studyDay = prompt("Enter the current day: ");
+}
+
+switch (studyDay) {
+  case "Sunday":
+    studyPlan = `Today is your study day! Study for ${adjustedDailyMinutes} minutes today`;
+  break;
+
+  case "Monday":
+    studyPlan = "Today is your rest day!";
+    break;
+  case "Tuesday":
+    studyPlan = `Today is your lab day! Study for ${adjustedDailyMinutes} minutes today. `;
+    break;
+
+  case "Wednesday":
+    studyPlan = `Today is your applied programming activity day! Study for ${adjustedDailyMinutes} minutes today. `;
+    break;
+
+  case "Thursday":
+    studyPlan = `Today is a work day! Study for ${adjustedDailyMinutes} minutes today.`;
+    break;
+
+  case "Friday":
+    studyPlan = `Today is a travel day! In the car, study for ${adjustedDailyMinutes} minutes today.`;
+    break;
+
+  case "Saturday":
+    studyPlan = `Today is another study day! Study for ${adjustedDailyMinutes} minutes today`;
+    break;
+
+  case "Complete":
+    studyPlan = "Course Completed!";
+    break;
+
+  default:
+    studyPlan = "Invalid Day.";
+    break;
+}
+
 // DISPLAY RESULTS
 
 
@@ -81,3 +152,7 @@ display("Daily Study Minutes (with rest day)" , adjustedDailyMinutes.toFixed(2))
 
 display("Percent Complete" , coursePercentComplete.toFixed(2) + "%");
 display("Percent Remaining" , coursePercentRemaining.toFixed(2) + "%");
+display("Course Progress", courseProgress);
+display("Course Grade", courseGrade);
+display("Study Day", studyDay);
+display("Study Plan", studyPlan);
