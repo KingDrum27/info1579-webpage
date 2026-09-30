@@ -60,47 +60,49 @@ function calculatePercentComplete(completed, total) {
 
 // Calculate courseProgress
 
-let courseProgress;
-
-if (coursePercentRemaining == 0){
-  courseProgress = "Finished!";
+const getCourseProgress = function(percentRemaining) {
+  
+  if (coursePercentRemaining == 0){
+  return "Finished!";
 }
 else if (coursePercentRemaining >= 1 && coursePercentRemaining < 25) {
-  courseProgress = "Almost Finished!";
+  return "Almost Finished!";
 }
 else if (coursePercentRemaining >= 25 && coursePercentRemaining < 75) {
-  courseProgress = "Making Progress";
+  return "Making Progress";
 }
 else if (coursePercentRemaining >= 75 && coursePercentRemaining <= 100) {
-  courseProgress = "Just Getting Started";
+  return "Just Getting Started";
 }
 else {
-  courseProgress = "Invalid entry.";
+  return "Invalid entry.";
 }
+}
+
+
 
 // Calculate courseGrade
 
-let courseGrade;
-
+const getCourseGrade = (percentComplete) => {
 if (coursePercentComplete < 60) {
-  courseGrade = "F";
+  return "F";
 }
 else if (coursePercentComplete >= 60 && coursePercentComplete < 70) {
-  courseGrade = "D";
+  return "D";
 }
 else if (coursePercentComplete >= 70 && coursePercentComplete < 80) {
-  courseGrade = "C";
+  return "C";
 }
 else if (coursePercentComplete >= 80 && coursePercentComplete < 90) {
-  courseGrade = "B";
+  return "B";
 }
 else if (coursePercentComplete >= 90 && coursePercentComplete <= 100) {
-  courseGrade = "A";
+  return "A";
 }
 else {
-  courseGrade = "Invalid entry";
+  return "Invalid entry";
 }
-
+}
 // Variables
 
 let studyPlan;
@@ -171,7 +173,7 @@ display("Percent Complete" , coursePercentComplete.toFixed(2) + "%");
 display("Percent Remaining" , coursePercentRemaining.toFixed(2) + "%");
 
 
-display("Current Progress", courseProgress);
-display("Course Grade", courseGrade);
+display("Current Progress", getCourseProgress(percentRemaining));
+display("Course Grade", getCourseGrade(percentComplete));
 display("Study Day", studyDay);
 display("Study Plan", studyPlan);
