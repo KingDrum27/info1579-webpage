@@ -27,7 +27,7 @@ let outputMessage = `Hello and Welcome, ${userName}`;
 // Calculate
 
 let hoursPerWeek = 6;
-let totalStudyHours = (totalModules * hoursPerWeek);
+const totalStudyHours = calculateStudyHours(courseModules.length);
 
 // Calculate
 
@@ -43,7 +43,9 @@ let adjustedDailyMinutes = (adjustedDailyHours * 60);
 
 //New
 
-function calculateStudyHours(totalModules, hoursPerWeek)
+function calculateStudyHours(modules, hoursPerModule = 6) {
+  return ((modules * hoursPerModule));
+}
 
 
 
