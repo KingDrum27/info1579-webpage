@@ -41,13 +41,19 @@ let adjustedDailyMinutes = (adjustedDailyHours * 60);
 
 // Calculate
 
+//New
+
+function calculateStudyHours(totalModules, hoursPerWeek)
+
+
+
 const coursePercentComplete = calculatePercentComplete(completedModules.length, courseModules.length);
 let coursePercentRemaining = ((totalModules - completedModules) / totalModules) * 100;
 
 // New
 
-function calculatePercentComplete(completedModules, totalModules) {
-  return ((completedModules / totalModules) * 100);
+function calculatePercentComplete(completed, total) {
+  return ((completed / total) * 100);
 }
 
 // Calculate courseProgress
