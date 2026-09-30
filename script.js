@@ -1,7 +1,7 @@
 /*
     Name: Camden Drumheller
     Date: 9/27/26
-    Assignment: Module 02 Applied Programming Activity
+    Assignment: Module 03 Applied Programming Activity
     Quarter: 1st
     Instructor: Lisa Thoendel
 */
@@ -13,96 +13,92 @@ const display = (label, value) =>
 
 // Variables
 
-const courseModules = ["Module 1", "Module 2", "Module 3", "Module 4", "Module 5", "Module 6", "Module 7", "Module 8", "Module 9", "Module 10"];
-const completedModulesArray = ["Module 1", "Module 2", "Module 3"];
+    const courseModules = ["Module 1", "Module 2", "Module 3", "Module 4", "Module 5", "Module 6", "Module 7", "Module 8", "Module 9", "Module 10"];
+    const completedModulesArray = ["Module 1", "Module 2", "Module 3"];
 
-const userName = "Camden";
-let totalModules = 10;
-let isEnrolled = true;
+    const userName = "Camden";
+    let totalModules = 10;
+    let isEnrolled = true;
 
 // Template Literal
 
-let outputMessage = `Hello and Welcome, ${userName}`;
+    let outputMessage = `Hello and Welcome, ${userName}`;
 
-// Calculate
+// Calculate totalStudyHours
 
-let hoursPerWeek = 6;
-const totalStudyHours = calculateStudyHours(courseModules.length);
+    let hoursPerWeek = 6;
+    const totalStudyHours = calculateStudyHours(courseModules.length);
 
-// Calculate
+      function calculateStudyHours(modules, hoursPerModule = 6) {
+        return ((modules * hoursPerModule));
+      }
 
-let dailyStudyHours = (hoursPerWeek / 7);
-let dailyStudyMinutes = (dailyStudyHours * 60);
+// Calculate daily studying
 
-// Calculate
+    let dailyStudyHours = (hoursPerWeek / 7);
+    let dailyStudyMinutes = (dailyStudyHours * 60);
 
-let adjustedDailyHours = (hoursPerWeek / 6);
-let adjustedDailyMinutes = (adjustedDailyHours * 60);
+// Calculate daily studying with a rest day
 
-// Calculate
+    let adjustedDailyHours = (hoursPerWeek / 6);
+    let adjustedDailyMinutes = (adjustedDailyHours * 60);
 
-//New
+// Calculate course percentages
 
-function calculateStudyHours(modules, hoursPerModule = 6) {
-  return ((modules * hoursPerModule));
-}
+    const coursePercentComplete = calculatePercentComplete(completedModulesArray.length, courseModules.length);
+    let coursePercentRemaining = ((totalModules - completedModulesArray.length) / totalModules) * 100;
 
+      function calculatePercentComplete(completed, total) {
+        return ((completed / total) * 100);
+      }
 
+// Calculate courseProgress: Function Expression
 
-const coursePercentComplete = calculatePercentComplete(completedModulesArray.length, courseModules.length);
-let coursePercentRemaining = ((totalModules - completedModulesArray.length) / totalModules) * 100;
-
-// New
-
-function calculatePercentComplete(completed, total) {
-  return ((completed / total) * 100);
-}
-
-// Calculate courseProgress
-
-const getCourseProgress = function(percentRemaining) {
+      const getCourseProgress = function(percentRemaining) {
   
-  if (percentRemaining == 0){
-  return "Finished!";
-}
-else if (percentRemaining >= 1 && percentRemaining < 25) {
-  return "Almost Finished!";
-}
-else if (percentRemaining >= 25 && percentRemaining < 75) {
-  return "Making Progress";
-}
-else if (percentRemaining >= 75 && percentRemaining <= 100) {
-  return "Just Getting Started";
-}
-else {
-  return "Invalid entry.";
-}
-}
+        if (percentRemaining == 0){
+          return "Finished!";
+        }
+        else if (percentRemaining >= 1 && percentRemaining < 25) {
+          return "Almost Finished!";
+        }
+        else if (percentRemaining >= 25 && percentRemaining < 75) {
+          return "Making Progress";
+        }
+        else if (percentRemaining >= 75 && percentRemaining <= 100) {
+          return "Just Getting Started";
+        }
+        else {
+          return "Invalid entry.";
+        }
+      }
 
 
+// Calculate courseGrade: Arrow Function
 
-// Calculate courseGrade
+      const getCourseGrade = (percentComplete) => {
+        
+        if (percentComplete < 60) {
+          return "F";
+        }
+        else if (percentComplete >= 60 && percentComplete < 70) {
+          return "D";
+        }
+        else if (percentComplete >= 70 && percentComplete < 80) {
+          return "C";
+        }
+        else if (percentComplete >= 80 && percentComplete < 90) {
+          return "B";
+        }
+        else if (percentComplete >= 90 && percentComplete <= 100) {
+          return "A";
+        }
+        else {
+          return "Invalid entry";
+        }       
+      }
 
-const getCourseGrade = (percentComplete) => {
-if (percentComplete < 60) {
-  return "F";
-}
-else if (percentComplete >= 60 && percentComplete < 70) {
-  return "D";
-}
-else if (percentComplete >= 70 && percentComplete < 80) {
-  return "C";
-}
-else if (percentComplete >= 80 && percentComplete < 90) {
-  return "B";
-}
-else if (percentComplete >= 90 && percentComplete <= 100) {
-  return "A";
-}
-else {
-  return "Invalid entry";
-}
-}
+
 // Variables
 
 let studyPlan;
