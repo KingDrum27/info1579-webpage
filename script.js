@@ -41,7 +41,7 @@ let adjustedDailyMinutes = (adjustedDailyHours * 60);
 
 // Calculate
 
-const coursePercentComplete = calculatePercentComplete(completedModules, courseModules);
+const coursePercentComplete = calculatePercentComplete(completedModules.length, courseModules.length);
 let coursePercentRemaining = ((totalModules - completedModules) / totalModules) * 100;
 
 // New
