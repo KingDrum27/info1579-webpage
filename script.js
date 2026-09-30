@@ -62,16 +62,16 @@ function calculatePercentComplete(completed, total) {
 
 const getCourseProgress = function(percentRemaining) {
   
-  if (coursePercentRemaining == 0){
+  if (percentRemaining == 0){
   return "Finished!";
 }
-else if (coursePercentRemaining >= 1 && coursePercentRemaining < 25) {
+else if (percentRemaining >= 1 && percentRemaining < 25) {
   return "Almost Finished!";
 }
-else if (coursePercentRemaining >= 25 && coursePercentRemaining < 75) {
+else if (percentRemaining >= 25 && percentRemaining < 75) {
   return "Making Progress";
 }
-else if (coursePercentRemaining >= 75 && coursePercentRemaining <= 100) {
+else if (percentRemaining >= 75 && percentRemaining <= 100) {
   return "Just Getting Started";
 }
 else {
@@ -84,19 +84,19 @@ else {
 // Calculate courseGrade
 
 const getCourseGrade = (percentComplete) => {
-if (coursePercentComplete < 60) {
+if (percentComplete < 60) {
   return "F";
 }
-else if (coursePercentComplete >= 60 && coursePercentComplete < 70) {
+else if (percentComplete >= 60 && percentComplete < 70) {
   return "D";
 }
-else if (coursePercentComplete >= 70 && coursePercentComplete < 80) {
+else if (percentComplete >= 70 && percentComplete < 80) {
   return "C";
 }
-else if (coursePercentComplete >= 80 && coursePercentComplete < 90) {
+else if (percentComplete >= 80 && percentComplete < 90) {
   return "B";
 }
-else if (coursePercentComplete >= 90 && coursePercentComplete <= 100) {
+else if (percentComplete >= 90 && percentComplete <= 100) {
   return "A";
 }
 else {
