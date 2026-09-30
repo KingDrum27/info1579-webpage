@@ -14,7 +14,7 @@ const display = (label, value) =>
 // Variables
 
 const courseModules = ["Module 1", "Module 2", "Module 3", "Module 4", "Module 5", "Module 6", "Module 7", "Module 8", "Module 9", "Module 10"];
-const completedModulesArray = ["Module 1", "Module 2"];
+const completedModulesArray = ["Module 1", "Module 2", "Module 3"];
 
 const userName = "Camden";
 let totalModules = 10;
@@ -41,9 +41,14 @@ let adjustedDailyMinutes = (adjustedDailyHours * 60);
 
 // Calculate
 
-let completedModules = prompt("Enter the number of completed modules (1-10): ");
-let coursePercentComplete = (completedModules / totalModules) * 100;
+const coursePercentComplete = calculatePercentComplete(completedModules, courseModules);
 let coursePercentRemaining = ((totalModules - completedModules) / totalModules) * 100;
+
+// New
+
+function calculatePercentComplete(completedModules, totalModules) {
+  return ((completedModules / totalModules) * 100);
+}
 
 // Calculate courseProgress
 
