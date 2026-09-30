@@ -49,8 +49,8 @@ function calculateStudyHours(modules, hoursPerModule = 6) {
 
 
 
-const coursePercentComplete = calculatePercentComplete(completedModules.length, courseModules.length);
-let coursePercentRemaining = ((totalModules - completedModules) / totalModules) * 100;
+const coursePercentComplete = calculatePercentComplete(completedModulesArray.length, courseModules.length);
+let coursePercentRemaining = ((totalModules - completedModulesArray.length) / totalModules) * 100;
 
 // New
 
