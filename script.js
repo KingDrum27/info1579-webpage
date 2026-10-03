@@ -98,11 +98,10 @@ const display = (label, value) =>
         }       
       }
 
-      let i;
 
       const displayModules = (modules) => {
-        for (i = 0; i < courseModules.length; i++) {
-          display(`Module ${i + 1}` , modules[i]);
+        for (let i = 0; i < modules.length; i++) {
+          display(`Module ${i + 1}`, modules[i]);
         }
       }
 
@@ -115,7 +114,6 @@ const display = (label, value) =>
 
 // Variables
 
-let studyPlan;
 let studyDay;
 
 // What day is it?
@@ -129,7 +127,11 @@ else {
 
 // Based on the day, what is the study plan?
 
-switch (studyDay) {
+const getStudyPlan = (studyDay) => {
+
+let studyPlan;
+
+  switch (studyDay) {
   case "Sunday":
     studyPlan = `Today is your study day! Study for ${adjustedDailyMinutes.toFixed(2)} minutes today`;
   break;
@@ -164,7 +166,13 @@ switch (studyDay) {
   default:
     studyPlan = "Invalid Day.";
     break;
+    
+
 }
+return studyPlan;
+
+}
+
 
 // DISPLAY RESULTS
 
@@ -188,4 +196,4 @@ display("Percent Remaining" , coursePercentRemaining.toFixed(2) + "%");
 display("Current Progress", getCourseProgress(coursePercentRemaining));
 display("Course Grade", getCourseGrade(coursePercentComplete));
 display("Study Day", studyDay);
-display("Study Plan", studyPlan);
+display("Study Plan", getStudyPlan(studyDay));
