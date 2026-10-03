@@ -105,7 +105,14 @@ const display = (label, value) =>
           display(`Module ${i + 1}` , modules[i]);
         }
       }
-    
+
+      const displayCompletedModules = (...modules) => {
+        return modules.join(", ");
+      }
+      let completedModulesList = displayCompletedModules(...completedModulesArray);
+
+
+
 // Variables
 
 let studyPlan;
@@ -166,6 +173,7 @@ display("My Name" , userName);
 display("Enrolled" , isEnrolled);
 display("Total Modules" , totalModules);
 displayModules(courseModules);
+display("Completed Modules", completedModulesList);
 display("Total Study Hours" , totalStudyHours);
 display("Daily Study Hours (7 days)" , dailyStudyHours.toFixed(2));
 display("Daily Study Minutes (7 days)" , dailyStudyMinutes.toFixed(2));
