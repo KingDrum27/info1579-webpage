@@ -1,6 +1,6 @@
 /*
     Name: Camden Drumheller
-    Date: 9/27/26
+    Date: 10/03/26
     Assignment: Module 03 Applied Programming Activity
     Quarter: 1st
     Instructor: Lisa Thoendel
@@ -98,12 +98,15 @@ const display = (label, value) =>
         }       
       }
 
+// Display total modules: arrow function
 
       const displayModules = (modules) => {
         for (let i = 0; i < modules.length; i++) {
           display(`Module ${i + 1}`, modules[i]);
         }
       }
+
+// Display completed modules: arrow function with rest and spread operators
 
       const displayCompletedModules = (...modules) => {
         return modules.join(", ");
@@ -114,64 +117,65 @@ const display = (label, value) =>
 
 // Variables
 
-let studyDay;
+    let studyDay;
 
 // What day is it?
 
-if (coursePercentComplete === 100) {
-  studyDay = "Complete";
-} 
-else {
-  studyDay = prompt("Enter the current day: ");
-}
+        if (coursePercentComplete === 100) {
+          studyDay = "Complete";
+        } 
+        else {
+          studyDay = prompt("Enter the current day: ");
+        }
 
 // Based on the day, what is the study plan?
 
-const getStudyPlan = (studyDay) => {
+      const getStudyPlan = (studyDay) => {
 
-let studyPlan;
+        let studyPlan;
 
-  switch (studyDay) {
-  case "Sunday":
-    studyPlan = `Today is your study day! Study for ${adjustedDailyMinutes.toFixed(2)} minutes today`;
-  break;
+        switch (studyDay) {
 
-  case "Monday":
-    studyPlan = "Today is your rest day!";
-    break;
-  case "Tuesday":
-    studyPlan = `Today is your lab day! Study for ${adjustedDailyMinutes.toFixed(2)} minutes today. `;
-    break;
+          case "Sunday":
+            studyPlan = `Today is your study day! Study for ${adjustedDailyMinutes.toFixed(2)} minutes today`;
+            break;
 
-  case "Wednesday":
-    studyPlan = `Today is your applied programming activity day! Study for ${adjustedDailyMinutes.toFixed(2)} minutes today. `;
-    break;
+          case "Monday":
+            studyPlan = "Today is your rest day!";
+            break;
 
-  case "Thursday":
-    studyPlan = `Today is a work day! Study for ${adjustedDailyMinutes.toFixed(2)} minutes today.`;
-    break;
+          case "Tuesday":
+            studyPlan = `Today is your lab day! Study for ${adjustedDailyMinutes.toFixed(2)} minutes today. `;
+            break;
 
-  case "Friday":
-    studyPlan = `Today is a travel day! In the car, study for ${adjustedDailyMinutes.toFixed(2)} minutes today.`;
-    break;
+          case "Wednesday":
+            studyPlan = `Today is your applied programming activity day! Study for ${adjustedDailyMinutes.toFixed(2)} minutes today. `;
+            break;
 
-  case "Saturday":
-    studyPlan = `Today is another study day! Study for ${adjustedDailyMinutes.toFixed(2)} minutes today`;
-    break;
+          case "Thursday":
+            studyPlan = `Today is a work day! Study for ${adjustedDailyMinutes.toFixed(2)} minutes today.`;
+            break;
 
-  case "Complete":
-    studyPlan = "Course Completed!";
-    break;
+          case "Friday":
+            studyPlan = `Today is a travel day! In the car, study for ${adjustedDailyMinutes.toFixed(2)} minutes today.`;
+            break;
 
-  default:
-    studyPlan = "Invalid Day.";
-    break;
-    
+          case "Saturday":
+            studyPlan = `Today is another study day! Study for ${adjustedDailyMinutes.toFixed(2)} minutes today`;
+            break;
 
-}
-return studyPlan;
+          case "Complete":
+            studyPlan = "Course Completed!";
+            break;
 
-}
+          default:
+            studyPlan = "Invalid Day.";
+            break;
+        }
+
+        return studyPlan;
+
+      }
 
 
 // DISPLAY RESULTS
