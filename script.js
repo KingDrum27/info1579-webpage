@@ -8,13 +8,13 @@
 
 "use strict";
 
-const display = (label, value) =>
-  (document.getElementById("output").innerHTML += `${label}: ${value}<br>`);
+/* const display = (label, value) =>
+  (document.getElementById("output").innerHTML += `${label}: ${value}<br>`); */
 
 // Variables
 
     const courseModules = ["Module 1", "Module 2", "Module 3", "Module 4", "Module 5", "Module 6", "Module 7", "Module 8", "Module 9", "Module 10"];
-    const completedModulesArray = ["Module 1", "Module 2", "Module 3"];
+// const completedModulesArray = ["Module 1", "Module 2", "Module 3"];
 
     const userName = "Camden";
     let totalModules = 10;
@@ -178,7 +178,7 @@ const display = (label, value) =>
       }
 
 
-// DISPLAY RESULTS
+/* DISPLAY RESULTS
 
 display("Welcome Message" , outputMessage);
 display("My Name" , userName);
@@ -201,3 +201,4 @@ display("Current Progress", getCourseProgress(coursePercentRemaining));
 display("Course Grade", getCourseGrade(coursePercentComplete));
 display("Study Day", studyDay);
 display("Study Plan", getStudyPlan(studyDay));
+*/
