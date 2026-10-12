@@ -201,6 +201,24 @@ const output = document.getElementById("output");
 
       }
 
+      const applyDashboardColor = (percentComplete) => {
+        if(percentComplete >= 75) {
+          output.style.backgroundColor = ("#d4edda");
+        }
+        else if(percentComplete >= 25) {
+          output.style.backgroundColor = ("#fff3cd");
+        }
+        else {
+          output.style.backgroundColor = ("#f8d7da");
+        }
+         
+
+        
+
+
+        
+      
+
 
 /* DISPLAY RESULTS
 
