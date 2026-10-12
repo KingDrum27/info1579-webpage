@@ -8,9 +8,6 @@
 
 "use strict";
 
-/* const display = (label, value) =>
-  (document.getElementById("output").innerHTML += `${label}: ${value}<br>`); */
-
 // Variables
 
 const studentNameInput = document.getElementById("studentName");
@@ -20,34 +17,21 @@ const generateButton = document.getElementById("generateButton");
 const resetButton = document.getElementById("resetButton");
 const output = document.getElementById("output");
 
-    const courseModules = ["Module 1", "Module 2", "Module 3", "Module 4", "Module 5", "Module 6", "Module 7", "Module 8", "Module 9", "Module 10"];
-// const completedModulesArray = ["Module 1", "Module 2", "Module 3"];
+const courseModules = ["Module 1", "Module 2", "Module 3", "Module 4", "Module 5", "Module 6", "Module 7", "Module 8", "Module 9", "Module 10"];
+let totalModules = 10;
 
-    const userName = "Camden";
-    let totalModules = 10;
-    let isEnrolled = true;
+let hoursPerWeek = 6;
 
-// Template Literal
-
-    let outputMessage = `Hello and Welcome, ${userName}`;
+let adjustedDailyHours = (hoursPerWeek / 6);
+let adjustedDailyMinutes = (adjustedDailyHours * 60);
 
 // Calculate totalStudyHours
-
-    let hoursPerWeek = 6;
 
       function calculateStudyHours(modules, hoursPerModule = 6) {
         return ((modules * hoursPerModule));
       }
 
-// Calculate daily studying
-
-
-// Calculate daily studying with a rest day
- let adjustedDailyHours = (hoursPerWeek / 6);
-let adjustedDailyMinutes = (adjustedDailyHours * 60);
-
 // Calculate course percentages
-
 
       function calculatePercentComplete(completed, total) {
         return ((completed / total) * 100);
@@ -73,7 +57,6 @@ let adjustedDailyMinutes = (adjustedDailyHours * 60);
           return "Invalid entry.";
         }
       }
-
 
 // Calculate courseGrade: Arrow Function
 
@@ -109,7 +92,6 @@ let adjustedDailyMinutes = (adjustedDailyHours * 60);
           let listItem = document.createElement("li");
           listItem.textContent = modules[i];
           list.appendChild(listItem);
-          // display(`Module ${i + 1}`, modules[i]);
         }
         return list;
       }
@@ -119,7 +101,6 @@ let adjustedDailyMinutes = (adjustedDailyHours * 60);
           document.getElementById("remainingModulesList").appendChild(displayModules(remainingModules));
         }
       
-
       const generateDashboard = () => {
 
         let studentName = studentNameInput.value;
@@ -131,7 +112,7 @@ let adjustedDailyMinutes = (adjustedDailyHours * 60);
         let coursePercentRemaining = ((totalModules - completedModules) / totalModules) * 100;
 
         applyDashboardColor(coursePercentComplete);
-       
+
         let dailyStudyHours = (hoursPerWeek / 7);
         let dailyStudyMinutes = (dailyStudyHours * 60);
 
@@ -142,7 +123,6 @@ let adjustedDailyMinutes = (adjustedDailyHours * 60);
 
         displayDashboard(studentName, courseModules, completedModules, totalStudyHours, coursePercentComplete, coursePercentRemaining, grade, progress, studyDay, studyPlan);
         displayRemainingModules(completedModules);
-
       }
 
       const displayDashboard = (studentName, courseModules, completedModules, totalStudyHours, percentComplete, percentRemaining, grade, progress, studyDay, studyPlan) => {
@@ -160,46 +140,23 @@ let adjustedDailyMinutes = (adjustedDailyHours * 60);
 
             <p><strong>Total Study Hours:</strong> ${totalStudyHours}</p>
 
-            <p><strong>Percent Complete:</strong>${percentComplete.toFixed(0)}%</p>
+            <p><strong>Percent Complete:</strong> ${percentComplete.toFixed(0)}%</p>
 
-            <p><strong>Percent Remaining:</strong>${percentRemaining.toFixed(0)}%</p>
+            <p><strong>Percent Remaining:</strong> ${percentRemaining.toFixed(0)}%</p>
 
             <p><strong>Current Grade:</strong> ${grade}</p>
 
-            <p><strong>Progress Status:</strong>${progress}</p>
+            <p><strong>Progress Status:</strong> ${progress}</p>
 
-            <p><strong>Study Day:</strong>${studyDay}</p>
+            <p><strong>Study Day:</strong> ${studyDay}</p>
 
-            <p><strong>Today's Plan:</strong>${studyPlan}</p>
+            <p><strong>Today's Plan:</strong> ${studyPlan}</p>
 
             <p><strong>Remaining Modules</strong><div id="remainingModulesList"></div></p>
 
         </div>`;
       }
-    
-// Display completed modules: arrow function with rest and spread operators
 
- /* const displayCompletedModules = (...modules) => {
-        return modules.join(", ");
-      }
-      let completedModulesList = displayCompletedModules(...completedModules);
-*/
-
-
-// Variables
-
-// let studyDay;
-
-// What day is it?
-
-/*        if (coursePercentComplete === 100) {
-          studyDay = "Complete";
-        } 
-        else {
-          studyDay = prompt("Enter the current day: ");
-        }
-
-*/
 // Based on the day, what is the study plan?
 
       const getStudyPlan = (studyDay) => {
@@ -244,9 +201,7 @@ let adjustedDailyMinutes = (adjustedDailyHours * 60);
             studyPlan = "Invalid Day.";
             break;
         }
-
         return studyPlan;
-
       }
 
       const applyDashboardColor = (percentComplete) => {
@@ -261,8 +216,6 @@ let adjustedDailyMinutes = (adjustedDailyHours * 60);
         }
       }
         
-
-
 const resetDashboard = () => {
   completedModulesInput.value = 0;
   studentNameInput.value = "";
