@@ -22,9 +22,6 @@ let totalModules = 10;
 
 let hoursPerWeek = 6;
 
-let adjustedDailyHours = (hoursPerWeek / 6);
-let adjustedDailyMinutes = (adjustedDailyHours * 60);
-
 // Calculate totalStudyHours
 
       function calculateStudyHours(modules, hoursPerModule = 6) {
@@ -113,13 +110,13 @@ let adjustedDailyMinutes = (adjustedDailyHours * 60);
 
         applyDashboardColor(coursePercentComplete);
 
-        let dailyStudyHours = (hoursPerWeek / 7);
-        let dailyStudyMinutes = (dailyStudyHours * 60);
+        let adjustedDailyHours = (hoursPerWeek / 6);
+        let adjustedDailyMinutes = (adjustedDailyHours * 60);
 
         let grade = getCourseGrade(coursePercentComplete);
         let progress = getCourseProgress(coursePercentRemaining);
 
-        let studyPlan = getStudyPlan(studyDay);
+        let studyPlan = getStudyPlan(studyDay, adjustedDailyMinutes);
 
         displayDashboard(studentName, courseModules, completedModules, totalStudyHours, coursePercentComplete, coursePercentRemaining, grade, progress, studyDay, studyPlan);
         displayRemainingModules(completedModules);
@@ -159,7 +156,7 @@ let adjustedDailyMinutes = (adjustedDailyHours * 60);
 
 // Based on the day, what is the study plan?
 
-      const getStudyPlan = (studyDay) => {
+      const getStudyPlan = (studyDay, adjustedDailyMinutes) => {
 
         let studyPlan;
 
