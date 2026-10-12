@@ -34,7 +34,6 @@ const output = document.getElementById("output");
 // Calculate totalStudyHours
 
     let hoursPerWeek = 6;
-    const totalStudyHours = calculateStudyHours(courseModules.length);
 
       function calculateStudyHours(modules, hoursPerModule = 6) {
         return ((modules * hoursPerModule));
@@ -42,18 +41,13 @@ const output = document.getElementById("output");
 
 // Calculate daily studying
 
-    let dailyStudyHours = (hoursPerWeek / 7);
-    let dailyStudyMinutes = (dailyStudyHours * 60);
 
 // Calculate daily studying with a rest day
-
-    let adjustedDailyHours = (hoursPerWeek / 6);
-    let adjustedDailyMinutes = (adjustedDailyHours * 60);
+ let adjustedDailyHours = (hoursPerWeek / 6);
+        let adjustedDailyMinutes = (adjustedDailyHours * 60);
 
 // Calculate course percentages
 
-    const coursePercentComplete = calculatePercentComplete(completedModulesArray.length, courseModules.length);
-    let coursePercentRemaining = ((totalModules - completedModulesArray.length) / totalModules) * 100;
 
       function calculatePercentComplete(completed, total) {
         return ((completed / total) * 100);
@@ -127,16 +121,34 @@ const output = document.getElementById("output");
       
 
       const generateDashboard = () => {
-        displayRemainingModules(Number(completedModulesInput.value));
+
+        let studentName = studentNameInput.value;
+        let completedModules = Number(completedModulesInput.value);
+        let studyDay = studyDayInput.value;
+
+        const totalStudyHours = calculateStudyHours(courseModules.length);
+        const coursePercentComplete = calculatePercentComplete(completedModules, courseModules.length);
+        let coursePercentRemaining = ((totalModules - completedModules) / totalModules) * 100;
+
+       
+        let dailyStudyHours = (hoursPerWeek / 7);
+        let dailyStudyMinutes = (dailyStudyHours * 60);
+
+        let grade = getCourseGrade(coursePercentComplete);
+        let progress = getCourseProgress(coursePercentRemaining);
+
+        getStudyPlan(studyDay);
+        displayRemainingModules(completedModules);
+
       }
     
 // Display completed modules: arrow function with rest and spread operators
 
-/* const displayCompletedModules = (...modules) => {
+ const displayCompletedModules = (...modules) => {
         return modules.join(", ");
       }
       let completedModulesList = displayCompletedModules(...completedModulesArray);
-*/
+
 
 
 // Variables
@@ -145,13 +157,14 @@ const output = document.getElementById("output");
 
 // What day is it?
 
-        if (coursePercentComplete === 100) {
+/*        if (coursePercentComplete === 100) {
           studyDay = "Complete";
         } 
         else {
           studyDay = prompt("Enter the current day: ");
         }
 
+*/
 // Based on the day, what is the study plan?
 
       const getStudyPlan = (studyDay) => {
@@ -211,11 +224,7 @@ const output = document.getElementById("output");
         else {
           output.style.backgroundColor = ("#f8d7da");
         }
-         
-
-        
-
-
+      }
         
       
 
