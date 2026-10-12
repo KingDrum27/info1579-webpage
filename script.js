@@ -13,6 +13,13 @@
 
 // Variables
 
+const studentNameInput = document.getElementById("studentName");
+const completedModules = document.getElementById("completedModules");
+const studyDay = document.getElementById("studyDay");
+const generateButton = document.getElementById("generateButton");
+const resetButton = document.getElementById("resetButton");
+const output = document.getElementById("output");
+
     const courseModules = ["Module 1", "Module 2", "Module 3", "Module 4", "Module 5", "Module 6", "Module 7", "Module 8", "Module 9", "Module 10"];
 // const completedModulesArray = ["Module 1", "Module 2", "Module 3"];
 
@@ -117,7 +124,7 @@
 
 // Variables
 
-    let studyDay;
+// let studyDay;
 
 // What day is it?
 
