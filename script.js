@@ -216,13 +216,13 @@ let adjustedDailyMinutes = (adjustedDailyHours * 60);
         }
       }
         
-const resetDashboard = () => {
-  completedModulesInput.value = 0;
-  studentNameInput.value = "";
-  studyDayInput.value = "Monday";
-  output.innerHTML = "";
-  output.style.backgroundColor = "";
-}
+  const resetDashboard = () => {
+    completedModulesInput.value = 0;
+    studentNameInput.value = "";
+    studyDayInput.value = "Monday";
+    output.innerHTML = "";
+    output.style.backgroundColor = "";
+  }
 
-generateButton.addEventListener("click", generateDashboard);
-resetButton.addEventListener("click", resetDashboard);
+  generateButton.addEventListener("click", generateDashboard);
+  resetButton.addEventListener("click", resetDashboard);
