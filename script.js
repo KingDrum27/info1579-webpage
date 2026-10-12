@@ -1,7 +1,7 @@
 /*
     Name: Camden Drumheller
-    Date: 10/03/26
-    Assignment: Module 03 Applied Programming Activity
+    Date: 10/11/26
+    Assignment: Module 04 Applied Programming Activity
     Quarter: 1st
     Instructor: Lisa Thoendel
 */
@@ -44,7 +44,7 @@ const output = document.getElementById("output");
 
 // Calculate daily studying with a rest day
  let adjustedDailyHours = (hoursPerWeek / 6);
-        let adjustedDailyMinutes = (adjustedDailyHours * 60);
+let adjustedDailyMinutes = (adjustedDailyHours * 60);
 
 // Calculate course percentages
 
@@ -126,10 +126,11 @@ const output = document.getElementById("output");
         let completedModules = Number(completedModulesInput.value);
         let studyDay = studyDayInput.value;
 
-        const totalStudyHours = calculateStudyHours(courseModules.length);
-        const coursePercentComplete = calculatePercentComplete(completedModules, courseModules.length);
+        let totalStudyHours = calculateStudyHours(courseModules.length);
+        let coursePercentComplete = calculatePercentComplete(completedModules, courseModules.length);
         let coursePercentRemaining = ((totalModules - completedModules) / totalModules) * 100;
 
+        applyDashboardColor(coursePercentComplete);
        
         let dailyStudyHours = (hoursPerWeek / 7);
         let dailyStudyMinutes = (dailyStudyHours * 60);
@@ -137,18 +138,52 @@ const output = document.getElementById("output");
         let grade = getCourseGrade(coursePercentComplete);
         let progress = getCourseProgress(coursePercentRemaining);
 
-        getStudyPlan(studyDay);
+        let studyPlan = getStudyPlan(studyDay);
+
+        displayDashboard(studentName, courseModules, completedModules, totalStudyHours, coursePercentComplete, coursePercentRemaining, grade, progress, studyDay, studyPlan);
         displayRemainingModules(completedModules);
 
+      }
+
+      const displayDashboard = (studentName, courseModules, completedModules, totalStudyHours, percentComplete, percentRemaining, grade, progress, studyDay, studyPlan) => {
+
+        output.innerHTML = `
+        <div class="dashboard-card">
+
+            <h2>My Study Dashboard</h2>
+
+            <p><strong>Name:</strong> ${studentName}</p>
+
+            <p><strong>Total Modules:</strong> ${courseModules.length}</p>
+
+            <p><strong>Completed Modules:</strong> ${completedModules}</p>
+
+            <p><strong>Total Study Hours:</strong> ${totalStudyHours}</p>
+
+            <p><strong>Percent Complete:</strong>${percentComplete.toFixed(0)}%</p>
+
+            <p><strong>Percent Remaining:</strong>${percentRemaining.toFixed(0)}%</p>
+
+            <p><strong>Current Grade:</strong> ${grade}</p>
+
+            <p><strong>Progress Status:</strong>${progress}</p>
+
+            <p><strong>Study Day:</strong>${studyDay}</p>
+
+            <p><strong>Today's Plan:</strong>${studyPlan}</p>
+
+            <p><strong>Remaining Modules</strong><div id="remainingModulesList"></div></p>
+
+        </div>`;
       }
     
 // Display completed modules: arrow function with rest and spread operators
 
- const displayCompletedModules = (...modules) => {
+ /* const displayCompletedModules = (...modules) => {
         return modules.join(", ");
       }
-      let completedModulesList = displayCompletedModules(...completedModulesArray);
-
+      let completedModulesList = displayCompletedModules(...completedModules);
+*/
 
 
 // Variables
@@ -226,30 +261,15 @@ const output = document.getElementById("output");
         }
       }
         
-      
 
 
-/* DISPLAY RESULTS
+const resetDashboard = () => {
+  completedModulesInput.value = 0;
+  studentNameInput.value = "";
+  studyDayInput.value = "Monday";
+  output.innerHTML = "";
+  output.style.backgroundColor = "";
+}
 
-display("Welcome Message" , outputMessage);
-display("My Name" , userName);
-display("Enrolled" , isEnrolled);
-display("Total Modules" , totalModules);
-displayModules(courseModules);
-display("Completed Modules", completedModulesList);
-display("Total Study Hours" , totalStudyHours);
-display("Daily Study Hours (7 days)" , dailyStudyHours.toFixed(2));
-display("Daily Study Minutes (7 days)" , dailyStudyMinutes.toFixed(2));
-display("Daily Study Hours (with rest day)" , adjustedDailyHours.toFixed(2));
-display("Daily Study Minutes (with rest day)" , adjustedDailyMinutes.toFixed(2));
-
-
-display("Percent Complete" , coursePercentComplete.toFixed(2) + "%");
-display("Percent Remaining" , coursePercentRemaining.toFixed(2) + "%");
-
-
-display("Current Progress", getCourseProgress(coursePercentRemaining));
-display("Course Grade", getCourseGrade(coursePercentComplete));
-display("Study Day", studyDay);
-display("Study Plan", getStudyPlan(studyDay));
-*/
+generateButton.addEventListener("click", generateDashboard);
+resetButton.addEventListener("click", resetDashboard);
