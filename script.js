@@ -14,8 +14,8 @@
 // Variables
 
 const studentNameInput = document.getElementById("studentName");
-const completedModules = document.getElementById("completedModules");
-const studyDay = document.getElementById("studyDay");
+const completedModulesInput = document.getElementById("completedModules");
+const studyDayInput = document.getElementById("studyDay");
 const generateButton = document.getElementById("generateButton");
 const resetButton = document.getElementById("resetButton");
 const output = document.getElementById("output");
@@ -108,18 +108,35 @@ const output = document.getElementById("output");
 // Display total modules: arrow function
 
       const displayModules = (modules) => {
+
+        let list = document.createElement("ul");
+
         for (let i = 0; i < modules.length; i++) {
-          display(`Module ${i + 1}`, modules[i]);
+          let listItem = document.createElement("li");
+          listItem.textContent = modules[i];
+          list.appendChild(listItem);
+          // display(`Module ${i + 1}`, modules[i]);
         }
+        return list;
       }
 
+        const displayRemainingModules = (completedModules) => {
+          let remainingModules = courseModules.slice(completedModules);
+          document.getElementById("remainingModulesList").appendChild(displayModules(remainingModules));
+        }
+      
+
+      const generateDashboard = () => {
+        displayRemainingModules(Number(completedModulesInput.value));
+      }
+    
 // Display completed modules: arrow function with rest and spread operators
 
-      const displayCompletedModules = (...modules) => {
+/* const displayCompletedModules = (...modules) => {
         return modules.join(", ");
       }
       let completedModulesList = displayCompletedModules(...completedModulesArray);
-
+*/
 
 
 // Variables
