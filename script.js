@@ -239,9 +239,9 @@ let hoursPerWeek = 6;
   const validateInput = (studentName, completedModules, studyDay) => {
     let errors = [];
     if (studentName.trim() === "") {
-      errors.push(`<li>Please enter a name.<li/>`);
+      errors.push(`<li>Please enter a name.</li>`);
     }
-    if (completedModules <= 0 || completedModules >= 10) {
+    if (completedModules < 0 || completedModules > 10) {
       errors.push(`<li>Completed modules must be between 0 and 10. </li>`);
     }
     if (studyDay === "") {
