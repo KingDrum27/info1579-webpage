@@ -108,7 +108,7 @@ let hoursPerWeek = 6;
         let studyDay = studyDayInput.value;
         console.log("Study Day: ", studyDay);
 
-        validateInput();
+        validateInput(studentName, completedModules, studyDay);
 
         let totalStudyHours = calculateStudyHours(courseModules.length);
         let coursePercentComplete = calculatePercentComplete(completedModules, courseModules.length);
@@ -223,9 +223,9 @@ let hoursPerWeek = 6;
       }
         
   const resetDashboard = () => {
-    console.log("Student Name: ", studentName);
-    console.log("Completed Modules: ", completedModules);
-    console.log("Study Day: ", studyDay);
+    console.log("Student Name: ", studentNameInput.value);
+    console.log("Completed Modules: ", completedModulesInput.value);
+    console.log("Study Day: ", studyDayInput.value);
     completedModulesInput.value = 0;
     studentNameInput.value = "";
     studyDayInput.value = "Monday";
@@ -234,7 +234,7 @@ let hoursPerWeek = 6;
   }
 
   generateButton.addEventListener("click", generateDashboard);
-  resetButton.addEventListener("click", resetDashboard());
+  resetButton.addEventListener("click", resetDashboard);
 
   const validateInput = (studentName, completedModules, studyDay) => {
     let errors = [];
