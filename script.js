@@ -103,11 +103,15 @@ let hoursPerWeek = 6;
         validateInput(studentName, completedModules, studyDay);
 
         let studentName = studentNameInput.value;
+        console.log("Student Name: ", studentName);
         let completedModules = Number(completedModulesInput.value);
+        console.log("Completed Modules: ", completedModules);
         let studyDay = studyDayInput.value;
+        console.log("Study Day: ", studyDay);
 
         let totalStudyHours = calculateStudyHours(courseModules.length);
         let coursePercentComplete = calculatePercentComplete(completedModules, courseModules.length);
+        console.log(coursePercentComplete);
         let coursePercentRemaining = ((totalModules - completedModules) / totalModules) * 100;
 
         applyDashboardColor(coursePercentComplete);
@@ -116,7 +120,9 @@ let hoursPerWeek = 6;
         let adjustedDailyMinutes = (adjustedDailyHours * 60);
 
         let grade = getCourseGrade(coursePercentComplete);
+        console.log("Grade: ", grade);
         let progress = getCourseProgress(coursePercentRemaining);
+        console.log("Progress: ", progress);
 
         let studyPlan = getStudyPlan(studyDay, adjustedDailyMinutes);
 
@@ -216,6 +222,9 @@ let hoursPerWeek = 6;
       }
         
   const resetDashboard = () => {
+    console.log("Student Name: ", studentName);
+    console.log("Completed Modules: ", completedModules);
+    console.log("Study Day: ", studyDay);
     completedModulesInput.value = 0;
     studentNameInput.value = "";
     studyDayInput.value = "Monday";
