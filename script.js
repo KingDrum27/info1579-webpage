@@ -108,7 +108,7 @@ let hoursPerWeek = 6;
         let studyDay = studyDayInput.value;
         console.log("Study Day: ", studyDay);
 
-        validateInput(studentName, completedModules, studyDay);
+        validateInput();
 
         let totalStudyHours = calculateStudyHours(courseModules.length);
         let coursePercentComplete = calculatePercentComplete(completedModules, courseModules.length);
@@ -241,7 +241,7 @@ let hoursPerWeek = 6;
     if (studentName.trim() === "") {
       errors.push(`<li>Please enter a name.<li/>`);
     }
-    if (completedModules >= 0 || completedModules <= 10) {
+    if (completedModules <= 0 || completedModules >= 10) {
       errors.push(`<li>Completed modules must be between 0 and 10. </li>`);
     }
     if (studyDay === "") {
