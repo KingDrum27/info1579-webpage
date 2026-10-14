@@ -110,7 +110,6 @@ let hoursPerWeek = 6;
 
         validateInput(studentName, completedModules, studyDay);
 
-
         let totalStudyHours = calculateStudyHours(courseModules.length);
         let coursePercentComplete = calculatePercentComplete(completedModules, courseModules.length);
         console.log(coursePercentComplete);
@@ -223,7 +222,7 @@ let hoursPerWeek = 6;
         }
       }
         
-  const resetDashboard = () => {
+  const resetDashboard = (studentName, completedModules, studyDay) => {
     console.log("Student Name: ", studentName);
     console.log("Completed Modules: ", completedModules);
     console.log("Study Day: ", studyDay);
