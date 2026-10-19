@@ -112,7 +112,7 @@ let hoursPerWeek = 6;
 
         let totalStudyHours = calculateStudyHours(courseModules.length);
         let coursePercentComplete = calculatePercentComplete(completedModules, courseModules.length);
-        console.log(coursePercentComplete);
+        console.log("Percent Complete: ", coursePercentComplete);
         let coursePercentRemaining = ((totalModules - completedModules) / totalModules) * 100;
 
         applyDashboardColor(coursePercentComplete);
@@ -280,8 +280,8 @@ let hoursPerWeek = 6;
     console.assert(getCourseGrade(95) === "A", "A Grade test failed");
 
     console.assert(getStudyPlan("Monday", 60) === "Today is your rest day!", "Monday Day test failed");
-    console.assert(getStudyPlan("Tuesday", 60) === `Today is your lab day! Study for 60 minutes today. `, "Tuesday Day test failed");
-    console.assert(getStudyPlan("Wednesday", 60) === `Today is your applied programming activity day! Study for 60 minutes today. `, "Wednesday Day test failed");
-    console.assert(getStudyPlan("Thursday", 60) === `Today is a work day! Study for 60 minutes today.`, "Thursday Day test failed");
-    console.assert(getStudyPlan("Friday", 60) === `Today is a travel day! In the car, study for 60 minutes today.`, "Friday day test failed");
+    console.assert(getStudyPlan("Tuesday", 60) === `Today is your lab day! Study for 60.00 minutes today. `, "Tuesday Day test failed");
+    console.assert(getStudyPlan("Wednesday", 60) === `Today is your applied programming activity day! Study for 60.00 minutes today. `, "Wednesday Day test failed");
+    console.assert(getStudyPlan("Thursday", 60) === `Today is a work day! Study for 60.00 minutes today.`, "Thursday Day test failed");
+    console.assert(getStudyPlan("Friday", 60) === `Today is a travel day! In the car, study for 60.00 minutes today.`, "Friday day test failed");
   }
