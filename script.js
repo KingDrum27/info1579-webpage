@@ -100,15 +100,15 @@ let hoursPerWeek = 6;
       
       const generateDashboard = () => {
 
-
-        let studentName = studentNameInput.value;
+        try {
+          let studentName = studentNameInput.value;
         console.log("Student Name: ", studentName);
         let completedModules = Number(completedModulesInput.value);
         console.log("Completed Modules: ", completedModules);
         let studyDay = studyDayInput.value;
         console.log("Study Day: ", studyDay);
 
-        validateInput(studentName, completedModules, studyDay);
+        validateInputs(studentName, completedModules, studyDay);
 
         let totalStudyHours = calculateStudyHours(courseModules.length);
         let coursePercentComplete = calculatePercentComplete(completedModules, courseModules.length);
@@ -129,7 +129,27 @@ let hoursPerWeek = 6;
 
         displayDashboard(studentName, courseModules, completedModules, totalStudyHours, coursePercentComplete, coursePercentRemaining, grade, progress, studyDay, studyPlan);
         displayRemainingModules(completedModules);
-      }
+
+        runUnitTests();
+        } catch (error) {
+          
+
+    output.innerHTML = `
+
+       <div class="dashboard-card">
+
+          <h2>Error</h2>
+
+          <ul>${error.message}</ul>
+
+       </div>`;
+
+     output.style.backgroundColor = "#f8d7da";
+
+}
+        }
+
+        
 
       const displayDashboard = (studentName, courseModules, completedModules, totalStudyHours, percentComplete, percentRemaining, grade, progress, studyDay, studyPlan) => {
 
@@ -236,7 +256,7 @@ let hoursPerWeek = 6;
   generateButton.addEventListener("click", generateDashboard);
   resetButton.addEventListener("click", resetDashboard);
 
-  const validateInput = (studentName, completedModules, studyDay) => {
+  const validateInputs = (studentName, completedModules, studyDay) => {
     let errors = [];
     if (studentName.trim() === "") {
       errors.push(`<li>Please enter a name.</li>`);
@@ -250,4 +270,18 @@ let hoursPerWeek = 6;
     if (errors.length > 0) {
       throw new Error(errors.join(""));
     }
+  }
+
+  const runUnitTests = () => {
+    console.assert(getCourseGrade(50) === "F", "F Grade test failed");
+    console.assert(getCourseGrade(65) === "D", "D Grade test failed");
+    console.assert(getCourseGrade(75) === "C", "C Grade test failed");
+    console.assert(getCourseGrade(85) === "B", "B Grade test failed");
+    console.assert(getCourseGrade(95) === "A", "A Grade test failed");
+
+    console.assert(getStudyPlan("Monday", 60) === "Today is your rest day!", "Monday Day test failed");
+    console.assert(getStudyPlan("Tuesday", 60) === `Today is your lab day! Study for 60 minutes today. `, "Tuesday Day test failed");
+    console.assert(getStudyPlan("Wednesday", 60) === `Today is your applied programming activity day! Study for 60 minutes today. `, "Wednesday Day test failed");
+    console.assert(getStudyPlan("Thursday", 60) === `Today is a work day! Study for 60 minutes today.`, "Thursday Day test failed");
+    console.assert(getStudyPlan("Friday", 60) === `Today is a travel day! In the car, study for 60 minutes today.`, "Friday day test failed");
   }
