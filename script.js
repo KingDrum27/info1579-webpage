@@ -1,7 +1,7 @@
 /*
     Name: Camden Drumheller
-    Date: 10/11/26
-    Assignment: Module 04 Applied Programming Activity
+    Date: 10/18/26
+    Assignment: Module 05 Applied Programming Activity
     Quarter: 1st
     Instructor: Lisa Thoendel
 */
@@ -121,9 +121,8 @@ let hoursPerWeek = 6;
         let adjustedDailyMinutes = (adjustedDailyHours * 60);
 
         let grade = getCourseGrade(coursePercentComplete);
-        console.log("Grade: ", grade);
         let progress = getCourseProgress(coursePercentRemaining);
-        console.log("Progress: ", progress);
+        console.log("Grade: ", grade, "Progress: ", progress);
 
         let studyPlan = getStudyPlan(studyDay, adjustedDailyMinutes);
 
