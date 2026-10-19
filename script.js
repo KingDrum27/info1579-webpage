@@ -252,14 +252,14 @@ let hoursPerWeek = 6;
 // Resets all inputted values
 
       const resetDashboard = () => {
-    console.log("Student Name: ", studentNameInput.value);
-    console.log("Completed Modules: ", completedModulesInput.value);
-    console.log("Study Day: ", studyDayInput.value);
-    completedModulesInput.value = 0;
-    studentNameInput.value = "";
-    studyDayInput.value = "Monday";
-    output.innerHTML = "";
-    output.style.backgroundColor = "";
+        console.log("Student Name: ", studentNameInput.value);
+        console.log("Completed Modules: ", completedModulesInput.value);
+        console.log("Study Day: ", studyDayInput.value);
+        completedModulesInput.value = 0;
+        studentNameInput.value = "";
+        studyDayInput.value = "Monday";
+        output.innerHTML = "";
+        output.style.backgroundColor = "";
       }
 
 // Event Listeners: Buttons
