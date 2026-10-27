@@ -17,6 +17,8 @@ const generateButton = document.getElementById("generateButton");
 const resetButton = document.getElementById("resetButton");
 const output = document.getElementById("output");
 
+const jokeContainer = document.getElementById("jokeContainer");
+
 const courseModules = ["Module 1", "Module 2", "Module 3", "Module 4", "Module 5", "Module 6", "Module 7", "Module 8", "Module 9", "Module 10"];
 let totalModules = 10;
 
@@ -305,3 +307,30 @@ let hoursPerWeek = 6;
         console.assert(getStudyPlan("Thursday", 60) === `Today is a work day! Study for 60.00 minutes today.`, "Thursday Day test failed");
         console.assert(getStudyPlan("Friday", 60) === `Today is a travel day! In the car, study for 60.00 minutes today.`, "Friday day test failed");
       }
+
+// Start of API Work
+
+// Fetches random joke
+
+const getJoke = async () => {
+  const response = await fetch("https://official-joke-api.appspot.com/random_joke");
+  const data = await response.json();
+  return data;
+}
+
+// Displays joke
+
+const displayJoke = async () => {
+  try {
+    jokeContainer.innerHTML = "Loading joke...";
+    const joke = await getJoke();
+    jokeContainer.innerHTML = 
+      `<p>${joke.setup}</p> 
+      <p>${joke.punchline}</p>`;
+  }
+  catch (error) {
+    jokeContainer.innerHTML = `Unable to load joke.`;
+  }
+}
+
+displayJoke();
