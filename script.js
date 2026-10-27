@@ -1,7 +1,7 @@
 /*
     Name: Camden Drumheller
-    Date: 10/18/26
-    Assignment: Module 05 Applied Programming Activity
+    Date: 10/26/26
+    Assignment: Module 06 Applied Programming Activity
     Quarter: 1st
     Instructor: Lisa Thoendel
 */
@@ -18,6 +18,7 @@ const resetButton = document.getElementById("resetButton");
 const output = document.getElementById("output");
 
 const jokeContainer = document.getElementById("jokeContainer");
+const quoteContainer = document.getElementById("quoteContainer");
 
 const courseModules = ["Module 1", "Module 2", "Module 3", "Module 4", "Module 5", "Module 6", "Module 7", "Module 8", "Module 9", "Module 10"];
 let totalModules = 10;
@@ -334,3 +335,28 @@ const displayJoke = async () => {
 }
 
 displayJoke();
+
+// Gets the quote
+
+const getQuote = async () => {
+  const response = await fetch("https://dummyjson.com/quotes/random");
+  const data = await response.json();
+  return data;
+}
+
+// Displays the quote
+
+const displayQuote = async () => {
+  try {
+    quoteContainer.innerHTML = "Loading Quote...";
+    const quote = await getQuote();
+    quoteContainer.innerHTML = 
+      `<p>${quote.quote}</p>
+      <p>${quote.author}</p>`
+  }
+  catch (error) {
+    quoteContainer.innerHTML = `Unable to load quote.`;
+  }
+}
+
+displayQuote();
