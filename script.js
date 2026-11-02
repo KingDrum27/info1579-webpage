@@ -115,14 +115,12 @@ let hoursPerWeek = 6;
 
       const generateDashboard = () => {
 
-
         try {
 
           let studentName = studentNameInput.value;
           let completedModules = Number(completedModulesInput.value);
           let studyDay = studyDayInput.value;
           validateInputs(studentName, completedModules, studyDay);
-
 
           // Creates lists from courseModules array
 
@@ -166,7 +164,10 @@ let hoursPerWeek = 6;
 
           let studyPlan = getStudyPlan(studyDay, adjustedDailyMinutes);
 
-          displayDashboard(studentName, courseModules, completedModules, totalStudyHours, coursePercentComplete, coursePercentRemaining, grade, progress, studyDay, studyPlan, remainingHours);
+          displayDashboard(studentName, 
+            courseModules, completedModules, totalStudyHours, 
+            coursePercentComplete, coursePercentRemaining, grade, progress, 
+            studyDay, studyPlan, remainingHours);
 
           displayRemainingModules(remainingModules);
 
@@ -189,7 +190,9 @@ let hoursPerWeek = 6;
         
 // Dashboard display using HTML
 
-      const displayDashboard = (studentName, courseModules, completedModules, totalStudyHours, percentComplete, percentRemaining, grade, progress, studyDay, studyPlan, remainingHours) => {
+      const displayDashboard = (studentName, courseModules, 
+        completedModules, totalStudyHours, percentComplete, percentRemaining, 
+        grade, progress, studyDay, studyPlan, remainingHours) => {
 
         output.innerHTML = `
         <div class="dashboard-card">
