@@ -12,8 +12,8 @@
 
 import {calculatePercentComplete, calculateStudyHours, getCourseGrade, getCourseProgress, getStudyPlan} from "./calculations.js";
 import {validateInputs, runUnitTests} from "./validators.js";
-import {resetDashboard, displayModules, displayRemainingModules, applyDashboardColor, displayDashboard} from "./dashboard.js";
-import {getJoke, displayJoke, getQuote, displayQuote} from "./api.js";
+import {resetDashboard, displayRemainingModules, applyDashboardColor, displayDashboard} from "./dashboard.js";
+import {displayJoke, displayQuote} from "./api.js";
 import {courseModules} from "./data.js";
 
 
@@ -39,7 +39,7 @@ let hoursPerWeek = 6;
           let studentName = studentNameInput.value;
           let completedModules = Number(completedModulesInput.value);
           let studyDay = studyDayInput.value;
-          validateInputs(studentName, completedModules, studyDay, output);
+          validateInputs(studentName, completedModules, studyDay);
 
           // Creates lists from courseModules array
 

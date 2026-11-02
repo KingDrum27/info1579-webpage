@@ -14,7 +14,7 @@ import {getCourseGrade, getStudyPlan} from "./calculations.js";
 
 // Validates user inputs
 
-        export const validateInputs = (studentName, completedModules, studyDay, output) => {
+        export const validateInputs = (studentName, completedModules, studyDay) => {
         
             let errors = [];
 
