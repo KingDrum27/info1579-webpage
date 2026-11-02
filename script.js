@@ -107,8 +107,7 @@ let hoursPerWeek = 6;
         return list;
       }
 
-        const displayRemainingModules = (completedModules) => {
-          let remainingModules = courseModules.slice(completedModules);
+        const displayRemainingModules = remainingModules => {
           document.getElementById("remainingModulesList").appendChild(displayModules(remainingModules));
         }
       
@@ -118,6 +117,12 @@ let hoursPerWeek = 6;
 
 
         try {
+
+          let studentName = studentNameInput.value;
+          let completedModules = Number(completedModulesInput.value);
+          let studyDay = studyDayInput.value;
+          validateInputs(studentName, completedModules, studyDay);
+
 
           // Creates lists from courseModules array
 
@@ -135,18 +140,13 @@ let hoursPerWeek = 6;
 
           // ---------
 
-          let studentName = studentNameInput.value;
           console.log("Student Name: ", studentName);
 
           console.log(moduleNames);
 
-          let completedModules = Number(completedModulesInput.value);
           console.log("Completed Modules: ", completedModules);
 
-          let studyDay = studyDayInput.value;
           console.log("Study Day: ", studyDay);
-
-          validateInputs(studentName, completedModules, studyDay);
 
           let totalStudyHours = calculateStudyHours(courseModules.length);
 
@@ -166,9 +166,9 @@ let hoursPerWeek = 6;
 
           let studyPlan = getStudyPlan(studyDay, adjustedDailyMinutes);
 
-          displayDashboard(studentName, courseModules, completedModules, totalStudyHours, coursePercentComplete, coursePercentRemaining, grade, progress, studyDay, studyPlan);
+          displayDashboard(studentName, courseModules, completedModules, totalStudyHours, coursePercentComplete, coursePercentRemaining, grade, progress, studyDay, studyPlan, remainingHours);
 
-          displayRemainingModules(completedModules);
+          displayRemainingModules(remainingModules);
 
           runUnitTests();
 
@@ -189,7 +189,7 @@ let hoursPerWeek = 6;
         
 // Dashboard display using HTML
 
-      const displayDashboard = (studentName, courseModules, completedModules, totalStudyHours, percentComplete, percentRemaining, grade, progress, studyDay, studyPlan) => {
+      const displayDashboard = (studentName, courseModules, completedModules, totalStudyHours, percentComplete, percentRemaining, grade, progress, studyDay, studyPlan, remainingHours) => {
 
         output.innerHTML = `
         <div class="dashboard-card">
@@ -203,6 +203,8 @@ let hoursPerWeek = 6;
             <p><strong>Completed Modules:</strong> ${completedModules}</p>
 
             <p><strong>Total Study Hours:</strong> ${totalStudyHours}</p>
+
+            <p><strong>Remaining Study Hours:</strong> ${remainingHours}</p>
 
             <p><strong>Percent Complete:</strong> ${percentComplete.toFixed(0)}%</p>
 
