@@ -1,7 +1,7 @@
 /*
     Name: Camden Drumheller
-    Date: 11/01/26
-    Assignment: Module 07 Applied Programming Activity
+    Date: 11/02/26
+    Assignment: Module 08 Applied Programming Activity
     Quarter: 1st
     Instructor: Lisa Thoendel
 */
@@ -39,7 +39,7 @@ let hoursPerWeek = 6;
           let studentName = studentNameInput.value;
           let completedModules = Number(completedModulesInput.value);
           let studyDay = studyDayInput.value;
-          validateInputs(studentName, completedModules, studyDay);
+          validateInputs(studentName, completedModules, studyDay, output);
 
           // Creates lists from courseModules array
 
@@ -72,7 +72,7 @@ let hoursPerWeek = 6;
 
           let coursePercentRemaining = ((totalModules - completedModules) / totalModules) * 100;
 
-          applyDashboardColor(coursePercentComplete);
+          applyDashboardColor(coursePercentComplete, output);
 
           let adjustedDailyHours = (hoursPerWeek / 6);
           let adjustedDailyMinutes = (adjustedDailyHours * 60);
@@ -86,7 +86,7 @@ let hoursPerWeek = 6;
           displayDashboard(studentName, 
             courseModules, completedModules, totalStudyHours, 
             coursePercentComplete, coursePercentRemaining, grade, progress, 
-            studyDay, studyPlan, remainingHours);
+            studyDay, studyPlan, remainingHours, output);
 
           displayRemainingModules(remainingModules);
 
@@ -109,7 +109,8 @@ let hoursPerWeek = 6;
 // Event Listeners: Buttons
 
   generateButton.addEventListener("click", generateDashboard);
-  resetButton.addEventListener("click", resetDashboard);
+  resetButton.addEventListener("click", () => 
+    resetDashboard(studentNameInput, completedModulesInput, studyDayInput, output));
 
 displayJoke();
 displayQuote();

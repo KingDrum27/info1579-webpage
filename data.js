@@ -1,3 +1,13 @@
+/*
+    Name: Camden Drumheller
+    Date: 11/02/26
+    Assignment: Module 08 Applied Programming Activity
+    Quarter: 1st
+    Instructor: Lisa Thoendel
+*/
+
+"use strict";
+
 // Course Modules array
 
 export const courseModules = [

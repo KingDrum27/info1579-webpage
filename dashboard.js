@@ -1,10 +1,16 @@
-// Import
+/*
+    Name: Camden Drumheller
+    Date: 11/02/26
+    Assignment: Module 08 Applied Programming Activity
+    Quarter: 1st
+    Instructor: Lisa Thoendel
+*/
 
-import {courseModules} from "./data.js";
+"use strict";
 
 // Resets all inputted values
 
-        export const resetDashboard = () => {
+        export const resetDashboard = (studentNameInput, completedModulesInput, studyDayInput, output) => {
             console.log("Student Name: ", studentNameInput.value);
             console.log("Completed Modules: ", completedModulesInput.value);
             console.log("Study Day: ", studyDayInput.value);
@@ -37,7 +43,7 @@ import {courseModules} from "./data.js";
 
 // Dashboard background color
 
-        export const applyDashboardColor = (percentComplete) => {
+        export const applyDashboardColor = (percentComplete, output) => {
             if(percentComplete >= 75) {
                 output.style.backgroundColor = ("#d4edda");
             }
@@ -51,7 +57,7 @@ import {courseModules} from "./data.js";
 
 // Dashboard display using HTML
 
-        export const displayDashboard = (studentName, courseModules, completedModules, totalStudyHours, percentComplete, percentRemaining, grade, progress, studyDay, studyPlan, remainingHours) => {
+        export const displayDashboard = (studentName, courseModules, completedModules, totalStudyHours, percentComplete, percentRemaining, grade, progress, studyDay, studyPlan, remainingHours, output) => {
 
             output.innerHTML = `
             <div class="dashboard-card">

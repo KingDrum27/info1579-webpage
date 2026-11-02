@@ -1,10 +1,20 @@
+/*
+    Name: Camden Drumheller
+    Date: 11/02/26
+    Assignment: Module 08 Applied Programming Activity
+    Quarter: 1st
+    Instructor: Lisa Thoendel
+*/
+
+"use strict";
+
 // Import
 
-import {getCourseGrade} from "./calculations.js";
+import {getCourseGrade, getStudyPlan} from "./calculations.js";
 
 // Validates user inputs
 
-        export const validateInputs = (studentName, completedModules, studyDay) => {
+        export const validateInputs = (studentName, completedModules, studyDay, output) => {
         
             let errors = [];
 
