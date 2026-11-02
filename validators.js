@@ -1,3 +1,7 @@
+// Import
+
+import {getCourseGrade} from "./calculations.js";
+
 // Validates user inputs
 
         export const validateInputs = (studentName, completedModules, studyDay) => {

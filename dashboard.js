@@ -1,3 +1,7 @@
+// Import
+
+import {courseModules} from "./data.js";
+
 // Resets all inputted values
 
         export const resetDashboard = () => {

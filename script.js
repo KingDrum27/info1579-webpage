@@ -8,6 +8,15 @@
 
 "use strict";
 
+// Importing
+
+import {calculatePercentComplete, calculateStudyHours, getCourseGrade, getCourseProgress, getStudyPlan} from "./calculations.js";
+import {validateInputs, runUnitTests} from "./validators.js";
+import {resetDashboard, displayModules, displayRemainingModules, applyDashboardColor, displayDashboard} from "./dashboard.js";
+import {getJoke, displayJoke, getQuote, displayQuote} from "./api.js";
+import {courseModules} from "./data.js";
+
+
 // Variables
 
 const studentNameInput = document.getElementById("studentName");
@@ -21,9 +30,6 @@ let totalModules = 10;
 
 let hoursPerWeek = 6;
 
-
-
-      
 // Dashboard of everything
 
       const generateDashboard = () => {
@@ -99,9 +105,6 @@ let hoursPerWeek = 6;
 
           }
       }
-
-    
-        
 
 // Event Listeners: Buttons
 
