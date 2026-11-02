@@ -116,6 +116,21 @@ let hoursPerWeek = 6;
 
       const generateDashboard = () => {
 
+        const moduleNames = courseModules.map(module => {
+          return module.moduleName;
+        }
+        )
+
+        const remainingModules = courseModules.filter((module, index) => {
+          return index >= completedModules;
+        })
+
+        const remainingHours = remainingModules.reduce((accumulator, currentValue) => {
+          return accumulator + currentValue.hoursRequired;
+        }, 0)
+
+        console.log(moduleNames);
+
         try {
 
           let studentName = studentNameInput.value;
