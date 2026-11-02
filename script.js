@@ -1,7 +1,7 @@
 /*
     Name: Camden Drumheller
-    Date: 10/26/26
-    Assignment: Module 06 Applied Programming Activity
+    Date: 11/01/26
+    Assignment: Module 07 Applied Programming Activity
     Quarter: 1st
     Instructor: Lisa Thoendel
 */
@@ -20,7 +20,18 @@ const output = document.getElementById("output");
 const jokeContainer = document.getElementById("jokeContainer");
 const quoteContainer = document.getElementById("quoteContainer");
 
-const courseModules = ["Module 1", "Module 2", "Module 3", "Module 4", "Module 5", "Module 6", "Module 7", "Module 8", "Module 9", "Module 10"];
+const courseModules = [
+    { moduleName: "Module 1", hoursRequired: 6, topic: "JavaScript fundamentals" },
+    { moduleName: "Module 2", hoursRequired: 6, topic: "Conditionals, arrays" },
+    { moduleName: "Module 3", hoursRequired: 8, topic: "Functions, scope, loops" },
+    { moduleName: "Module 4", hoursRequired: 5, topic: "DOM" },
+    { moduleName: "Module 5", hoursRequired: 5, topic: "Debugging, error handling" },
+    { moduleName: "Module 6", hoursRequired: 6, topic: "APIs" },
+    { moduleName: "Module 7", hoursRequired: 7, topic: "Objects, iterators" },
+    { moduleName: "Module 8", hoursRequired: 6, topic: "Modular JS, code organization, final project planning" },
+    { moduleName: "Module 9", hoursRequired: 7, topic: "Modern tools, final project development" },
+    { moduleName: "Module 10", hoursRequired: 10, topic: "Final project, deployment" }
+];
 let totalModules = 10;
 
 let hoursPerWeek = 6;
@@ -90,7 +101,7 @@ let hoursPerWeek = 6;
 
         for (let i = 0; i < modules.length; i++) {
           let listItem = document.createElement("li");
-          listItem.textContent = modules[i];
+          listItem.textContent = modules[i].moduleName;
           list.appendChild(listItem);
         }
         return list;
