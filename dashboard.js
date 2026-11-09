@@ -10,56 +10,72 @@
 
 // Resets all inputted values
 
-        export const resetDashboard = (studentNameInput, completedModulesInput, studyDayInput, output) => {
-            console.log("Student Name: ", studentNameInput.value);
-            console.log("Completed Modules: ", completedModulesInput.value);
-            console.log("Study Day: ", studyDayInput.value);
-            completedModulesInput.value = 0;
-            studentNameInput.value = "";
-            studyDayInput.value = "Monday";
-            output.innerHTML = "";
-            output.style.backgroundColor = "";
-        }
+export const resetDashboard = (
+  studentNameInput,
+  completedModulesInput,
+  studyDayInput,
+  output,
+) => {
+  console.log("Student Name: ", studentNameInput.value);
+  console.log("Completed Modules: ", completedModulesInput.value);
+  console.log("Study Day: ", studyDayInput.value);
+  completedModulesInput.value = 0;
+  studentNameInput.value = "";
+  studyDayInput.value = "Monday";
+  output.innerHTML = "";
+  output.style.backgroundColor = "";
+};
 
 // Display total modules: arrow function
 
-        export const displayModules = (modules) => {
+export const displayModules = (modules) => {
+  let list = document.createElement("ul");
 
-            let list = document.createElement("ul");
-
-            for (let i = 0; i < modules.length; i++) {
-                let listItem = document.createElement("li");
-                listItem.textContent = modules[i].moduleName;
-                list.appendChild(listItem);
-            }
-            return list;
-        }
+  for (let i = 0; i < modules.length; i++) {
+    let listItem = document.createElement("li");
+    listItem.textContent = modules[i].moduleName;
+    list.appendChild(listItem);
+  }
+  return list;
+};
 
 // Display remaining modules: arrow function
 
-        export const displayRemainingModules = remainingModules => {
-            document.getElementById("remainingModulesList").appendChild(displayModules(remainingModules));
-        }
+export const displayRemainingModules = (remainingModules) => {
+  document
+    .getElementById("remainingModulesList")
+    .appendChild(displayModules(remainingModules));
+};
 
 // Dashboard background color
 
-        export const applyDashboardColor = (percentComplete, output) => {
-            if(percentComplete >= 75) {
-                output.style.backgroundColor = ("#d4edda");
-            }
-            else if(percentComplete >= 25) {
-                output.style.backgroundColor = ("#fff3cd");
-            }
-            else {
-                output.style.backgroundColor = ("#f8d7da");
-            }
-        }
+export const applyDashboardColor = (percentComplete, output) => {
+  if (percentComplete >= 75) {
+    output.style.backgroundColor = "#d4edda";
+  } else if (percentComplete >= 25) {
+    output.style.backgroundColor = "#fff3cd";
+  } else {
+    output.style.backgroundColor = "#f8d7da";
+  }
+};
 
 // Dashboard display using HTML
 
-        export const displayDashboard = (studentName, courseModules, completedModules, totalStudyHours, percentComplete, percentRemaining, grade, progress, studyDay, studyPlan, remainingHours, output) => {
-
-            output.innerHTML = `
+export const displayDashboard = (
+  studentName,
+  courseModules,
+  completedModules,
+  totalStudyHours,
+  percentComplete,
+  percentRemaining,
+  grade,
+  progress,
+  studyDay,
+  studyPlan,
+  remainingHours,
+  output,
+) => {
+  output.innerHTML = `
             <div class="dashboard-card">
 
             <h2>My Study Dashboard</h2>
@@ -89,4 +105,4 @@
             <p><strong>Remaining Modules</strong><div id="remainingModulesList"></div></p>
 
             </div>`;
-        }
+};

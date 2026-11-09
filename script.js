@@ -10,12 +10,22 @@
 
 // Importing
 
-import {calculatePercentComplete, calculateStudyHours, getCourseGrade, getCourseProgress, getStudyPlan} from "./calculations.js";
-import {validateInputs, runUnitTests} from "./validators.js";
-import {resetDashboard, displayRemainingModules, applyDashboardColor, displayDashboard} from "./dashboard.js";
-import {displayJoke, displayQuote} from "./api.js";
-import {courseModules} from "./data.js";
-
+import {
+  calculatePercentComplete,
+  calculateStudyHours,
+  getCourseGrade,
+  getCourseProgress,
+  getStudyPlan,
+} from "./calculations.js";
+import { validateInputs, runUnitTests } from "./validators.js";
+import {
+  resetDashboard,
+  displayRemainingModules,
+  applyDashboardColor,
+  displayDashboard,
+} from "./dashboard.js";
+import { displayJoke, displayQuote } from "./api.js";
+import { courseModules } from "./data.js";
 
 // Variables
 
@@ -32,85 +42,103 @@ let hoursPerWeek = 6;
 
 // Dashboard of everything
 
-      const generateDashboard = () => {
+const generateDashboard = () => {
+  try {
+    let studentName = studentNameInput.value;
+    let completedModules = Number(completedModulesInput.value);
+    let studyDay = studyDayInput.value;
+    validateInputs(studentName, completedModules, studyDay);
 
-        try {
+    // Creates lists from courseModules array
 
-          let studentName = studentNameInput.value;
-          let completedModules = Number(completedModulesInput.value);
-          let studyDay = studyDayInput.value;
-          validateInputs(studentName, completedModules, studyDay);
+    const moduleNames = courseModules.map((module) => {
+      return module.moduleName;
+    });
 
-          // Creates lists from courseModules array
+    const remainingModules = courseModules.filter((module, index) => {
+      return index >= completedModules;
+    });
 
-          const moduleNames = courseModules.map(module => {
-            return module.moduleName;
-          })
+    const remainingHours = remainingModules.reduce(
+      (accumulator, currentValue) => {
+        return accumulator + currentValue.hoursRequired;
+      },
+      0,
+    );
 
-          const remainingModules = courseModules.filter((module, index) => {
-            return index >= completedModules;
-          })
+    // ---------
 
-          const remainingHours = remainingModules.reduce((accumulator, currentValue) => {
-            return accumulator + currentValue.hoursRequired;
-          }, 0)
+    console.log("Student Name: ", studentName);
 
-          // ---------
+    console.log(moduleNames);
 
-          console.log("Student Name: ", studentName);
+    console.log("Completed Modules: ", completedModules);
 
-          console.log(moduleNames);
+    console.log("Study Day: ", studyDay);
 
-          console.log("Completed Modules: ", completedModules);
+    let totalStudyHours = calculateStudyHours(courseModules.length);
 
-          console.log("Study Day: ", studyDay);
+    let coursePercentComplete = calculatePercentComplete(
+      completedModules,
+      courseModules.length,
+    );
+    console.log("Percent Complete: ", coursePercentComplete);
 
-          let totalStudyHours = calculateStudyHours(courseModules.length);
+    let coursePercentRemaining =
+      ((totalModules - completedModules) / totalModules) * 100;
 
-          let coursePercentComplete = calculatePercentComplete(completedModules, courseModules.length);
-          console.log("Percent Complete: ", coursePercentComplete);
+    applyDashboardColor(coursePercentComplete, output);
 
-          let coursePercentRemaining = ((totalModules - completedModules) / totalModules) * 100;
+    let adjustedDailyHours = hoursPerWeek / 6;
+    let adjustedDailyMinutes = adjustedDailyHours * 60;
 
-          applyDashboardColor(coursePercentComplete, output);
+    let grade = getCourseGrade(coursePercentComplete);
+    let progress = getCourseProgress(coursePercentRemaining);
+    console.log("Grade: ", grade, "Progress: ", progress);
 
-          let adjustedDailyHours = (hoursPerWeek / 6);
-          let adjustedDailyMinutes = (adjustedDailyHours * 60);
+    let studyPlan = getStudyPlan(studyDay, adjustedDailyMinutes);
 
-          let grade = getCourseGrade(coursePercentComplete);
-          let progress = getCourseProgress(coursePercentRemaining);
-          console.log("Grade: ", grade, "Progress: ", progress);
+    displayDashboard(
+      studentName,
+      courseModules,
+      completedModules,
+      totalStudyHours,
+      coursePercentComplete,
+      coursePercentRemaining,
+      grade,
+      progress,
+      studyDay,
+      studyPlan,
+      remainingHours,
+      output,
+    );
 
-          let studyPlan = getStudyPlan(studyDay, adjustedDailyMinutes);
+    displayRemainingModules(remainingModules);
 
-          displayDashboard(studentName, 
-            courseModules, completedModules, totalStudyHours, 
-            coursePercentComplete, coursePercentRemaining, grade, progress, 
-            studyDay, studyPlan, remainingHours, output);
-
-          displayRemainingModules(remainingModules);
-
-          runUnitTests();
-
-        } catch (error) {
-          
-            output.innerHTML = `
+    runUnitTests();
+  } catch (error) {
+    output.innerHTML = `
 
               <div class="dashboard-card">
                 <h2>Error</h2>
                 <ul>${error.message}</ul>
               </div>`;
 
-            output.style.backgroundColor = "#f8d7da";
-
-          }
-      }
+    output.style.backgroundColor = "#f8d7da";
+  }
+};
 
 // Event Listeners: Buttons
 
-  generateButton.addEventListener("click", generateDashboard);
-  resetButton.addEventListener("click", () => 
-    resetDashboard(studentNameInput, completedModulesInput, studyDayInput, output));
+generateButton.addEventListener("click", generateDashboard);
+resetButton.addEventListener("click", () =>
+  resetDashboard(
+    studentNameInput,
+    completedModulesInput,
+    studyDayInput,
+    output,
+  ),
+);
 
 displayJoke();
 displayQuote();
