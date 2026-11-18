@@ -1,14 +1,12 @@
 /*
     Name: Camden Drumheller
-    Date: 11/03/26
-    Assignment: Module 08 Applied Programming Activity
+    Date: 11/17/26
+    Assignment: Final Project JS
     Quarter: 1st
     Instructor: Lisa Thoendel
 */
 
 "use strict";
-
-// Importing
 
 // Variables
 
@@ -51,8 +49,6 @@ const generateDashboard = () => {
   }
 };
 
-// Event Listeners: Buttons
-
 submitButton.addEventListener("click", generateDashboard);
 
 const resetDashboard = (nameInput, jobInput, phoneInput) => {
@@ -60,4 +56,3 @@ const resetDashboard = (nameInput, jobInput, phoneInput) => {
     jobInput.value = "";
   phoneInput.value = "";
 };
-

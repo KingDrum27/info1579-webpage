@@ -1,7 +1,7 @@
 /*
     Name: Camden Drumheller
-    Date: 11/03/26
-    Assignment: Module 08 Applied Programming Activity
+    Date: 11/17/26
+    Assignment: Final Project JS
     Quarter: 1st
     Instructor: Lisa Thoendel
 */
@@ -23,7 +23,6 @@ export const resetDashboard = (
   completedModulesInput.value = 0;
   studentNameInput.value = "";
   studyDayInput.value = "";
-  careerInput.value = "";
   output.innerHTML = "";
   output.style.backgroundColor = "";
 };

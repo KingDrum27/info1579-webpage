@@ -1,14 +1,7 @@
-const aboutMeObject = {
-    name: "Camden",
-    currentJob: "Lawn Mowing",
-    hobbies: ["Baseball", "Gaming", "Coding", "Eating", "Star Wars"],
-    skills: ["Hardworking", "Dedicated", "Focused", "Strong", "Athlete"]
-}
-
 /*
     Name: Camden Drumheller
-    Date: 11/03/26
-    Assignment: Module 08 Applied Programming Activity
+    Date: 11/17/26
+    Assignment: Final Project JS
     Quarter: 1st
     Instructor: Lisa Thoendel
 */
@@ -22,6 +15,13 @@ import { displayJoke, displayQuote } from "./api.js";
 // Variables
 
 const output = document.getElementById("output");
+
+const aboutMeObject = {
+    name: "Camden",
+    currentJob: "Lawn Mowing",
+    hobbies: ["Baseball", "Gaming", "Coding", "Eating", "Star Wars"],
+    skills: ["Hardworking", "Dedicated", "Focused", "Strong", "Athlete"]
+}
 
 // Dashboard of everything
 
@@ -43,7 +43,6 @@ const generateDashboard = () => {
     output.style.backgroundColor = "#f8d7da";
   }
 };
-
 
 const displayDashboard = (output, meTopics) => {
     output.innerHTML = `

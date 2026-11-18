@@ -1,7 +1,7 @@
 /*
     Name: Camden Drumheller
-    Date: 11/03/26
-    Assignment: Module 08 Applied Programming Activity
+    Date: 11/17/26
+    Assignment: Final Project JS
     Quarter: 1st
     Instructor: Lisa Thoendel
 */
@@ -10,20 +10,9 @@
 
 // Importing
 
-import {
-  calculatePercentComplete,
-  calculateStudyHours,
-  getCourseGrade,
-  getCourseProgress,
-  getStudyPlan,
-} from "./calculations.js";
+import { calculatePercentComplete, calculateStudyHours, getCourseGrade, getCourseProgress, getStudyPlan } from "./calculations.js";
 import { validateInputs, runUnitTests } from "./validators.js";
-import {
-  resetDashboard,
-  displayRemainingModules,
-  applyDashboardColor,
-  displayDashboard,
-} from "./dashboard.js";
+import { resetDashboard, displayRemainingModules, applyDashboardColor, displayDashboard } from "./dashboard.js";
 import { courseModules } from "./data.js";
 
 // Variables
@@ -44,6 +33,7 @@ let hoursPerWeek = 6;
 
 const generateDashboard = () => {
   try {
+    
     let studentName = studentNameInput.value;
     let completedModules = Number(completedModulesInput.value);
     let studyDay = studyDayInput.value;
