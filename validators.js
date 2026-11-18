@@ -15,22 +15,32 @@ import { careerPaths } from "./career.js";
 
 // Validates user inputs
 
-export const validateInputs = (studentName, completedModules, studyDay, career) => {
+export const validateInputs = ({
+  studentName = "",
+  completedModules = 0, 
+  studyDay = "",
+  career = "",
+  nameVerification = true,
+  modulesVerification = true,
+  studyVerification = true,
+  careerVerification = true, 
+} = {}) => {
+
   let errors = [];
 
-  if (studentName.trim() === "") {
+  if (nameVerification && studentName.trim() === "") {
     errors.push(`<li>Please enter a name.</li>`);
   }
 
-  if (completedModules < 0 || completedModules > 10) {
+  if (modulesVerification && (completedModules < 0 || completedModules > 10)) {
     errors.push(`<li>Completed modules must be between 0 and 10. </li>`);
   }
 
-  if (studyDay === "") {
+  if (studyVerification && studyDay === "") {
     errors.push(`<li>Please select a study day.</li>`);
   }
 
-  if (career === "") {
+  if (careerVerification && career === "") {
     errors.push(`<li>Please select a career.</li>`);
   }
 
