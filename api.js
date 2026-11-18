@@ -17,7 +17,7 @@ const quoteContainer = document.getElementById("quoteContainer");
 
 export const getJoke = async () => {
   const response = await fetch(
-    "https://official-joke-api.appspot.com/random_joke",
+    "https://v2.jokeapi.dev/joke/Any?type=twopart",
   );
   const data = await response.json();
   return data;
@@ -30,7 +30,7 @@ export const displayJoke = async () => {
     jokeContainer.innerHTML = "Loading joke...";
     const joke = await getJoke();
     jokeContainer.innerHTML = `<p>${joke.setup}</p> 
-                    <p>${joke.punchline}</p>`;
+                    <p>${joke.delivery}</p>`;
   } catch (error) {
     jokeContainer.innerHTML = `Unable to load joke.`;
   }

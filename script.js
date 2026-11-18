@@ -24,7 +24,6 @@ import {
   applyDashboardColor,
   displayDashboard,
 } from "./dashboard.js";
-import { displayJoke, displayQuote } from "./api.js";
 import { courseModules } from "./data.js";
 
 // Variables
@@ -140,6 +139,3 @@ resetButton.addEventListener("click", () =>
     output
   ),
 );
-
-displayJoke();
-displayQuote();
