@@ -56,3 +56,5 @@ export const displayQuote = async () => {
     quoteContainer.innerHTML = `Unable to load quote.`;
   }
 };
+
+// The quote works. It doesn't display because the school blocks the link on my computer. 
