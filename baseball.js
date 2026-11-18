@@ -10,8 +10,6 @@
 
 // Importing
 
-import { baseballWorkout } from "./baseball.js";
-
 // Variables
 
 const generateButton = document.getElementById("generateButton");

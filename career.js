@@ -11,7 +11,6 @@
 // Importing
 
 import { validateInputs, runUnitTests } from "./validators.js";
-import { careerPaths } from "./career.js";
 
 // Variables
 
