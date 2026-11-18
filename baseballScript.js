@@ -70,16 +70,16 @@ const displayDashboard = (output, selectedWorkout) => {
       <h2>Baseball Workout Dashboard</h2>
       <p><strong>Selected Workout:</strong> ${selectedWorkout.Day}</p>
 
-        <h3>Throwing</h3>
+        <h5>Throwing</h5>
         <ul>${selectedWorkout.Throwing.map((throws) => `<li> ${throws} </li>`).join("")}</ul>
 
-        <h4>WaterBagWork</h4>
+        <h5>WaterBagWork</h5>
         <ul>${selectedWorkout.WaterBagWork.map((work) => `<li> ${work} </li>`).join("")}</ul>
 
         <h5>WeightRoomSession</h5>
         <ul>${selectedWorkout.WeightRoomSession.map((room) => `<li> ${room} </li>`).join("")}</ul>
 
-        <h6>Running</h6>
+        <h5>Running</h5>
         <ul>${selectedWorkout.Running.map((run) => `<li> ${run} </li>`).join("")}</ul>
 
     </div>
