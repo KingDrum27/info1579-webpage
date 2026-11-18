@@ -12,6 +12,7 @@
 
 
 import { validateInputs, runUnitTests } from "./validators.js";
+import { careerPaths } from "./career.js";
 
 // Variables
 
@@ -24,7 +25,13 @@ const careerInput = document.getElementById("career");
 
 const generateDashboard = () => {
   try {
+
     let career = careerInput.value;
+
+    let selectedCareer = careerPaths.find(path => {
+        return path.name === career;
+    })
+
     validateInputs({
         career,
         nameVerification: false,
@@ -40,7 +47,7 @@ const generateDashboard = () => {
 
     console.log("Career: ", career);
 
-    displayDashboard(output,career);
+    displayDashboard(output, selectedCareer);
 
   } catch (error) {
     output.innerHTML = `
@@ -64,11 +71,17 @@ resetButton.addEventListener("click", () =>
   ),
 );
 
-const displayDashboard = (output, career) => {
+const displayDashboard = (output, selectedCareer) => {
     output.innerHTML = `
     <div class="dashboard-card">
       <h2>Career Dashboard</h2>
-      <p><strong>Selected Career:</strong> ${career}</p>
+      <p><strong>Selected Career:</strong> ${selectedCareer.name}</p>
+
+        <h3>Skills</h3>
+        <ul>${selectedCareer.skills.map((skill) => `<li> ${skill} </li>`).join("")}</ul>
+
+        <h4>Resources</h4>
+        <ul>${selectedCareer.resources.map((resource) => `<li> ${resource} </li>`).join("")}</ul>
     </div>
   `;
 };

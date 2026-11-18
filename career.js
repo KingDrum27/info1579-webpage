@@ -4,9 +4,9 @@ export const careerPaths = [
 
         name: "Software Developer",
 
-        skills: [ "", "", "", "", "", ""],
+        skills: [ "Algorithms", "Architecture", "Debugging", "Databases", "Testing", "Logic"],
 
-        resources: [ "", "", "", "", ""]
+        resources: [ "roadmap.sh", "Harvard CS50", "NeetCode", "LeetCode", "Refactoring Guru"]
 
     },
 
@@ -14,9 +14,9 @@ export const careerPaths = [
 
         name: "Web Developer",
 
-        skills: [ "", "", "", "", ""],
+        skills: [ "HTML", "CSS", "JS", "APIs", "Security"],
 
-        resources: [ "", "", "", ""]
+        resources: [ "MDN Web Docs", "freeCodeCamp", "The Odin Project", "web.dev"]
 
     },
 
@@ -24,9 +24,9 @@ export const careerPaths = [
 
         name: "Game Developer",
 
-        skills: [ "", "", "", ""],
+        skills: [ "Physics", "Rendering", "Engines", "Shaders"],
 
-        resources: [ "", "", "", ""]
+        resources: [ "Unity Learn", "Godot Engine Docs", "GameDev.tv", "Game Programming Patterns"]
 
     },
 
