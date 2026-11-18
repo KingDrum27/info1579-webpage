@@ -11,10 +11,11 @@
 // Import
 
 import { getCourseGrade, getStudyPlan } from "./calculations.js";
+import { careerPaths } from "./career.js";
 
 // Validates user inputs
 
-export const validateInputs = (studentName, completedModules, studyDay) => {
+export const validateInputs = (studentName, completedModules, studyDay, career) => {
   let errors = [];
 
   if (studentName.trim() === "") {
@@ -27,6 +28,10 @@ export const validateInputs = (studentName, completedModules, studyDay) => {
 
   if (studyDay === "") {
     errors.push(`<li>Please select a study day.</li>`);
+  }
+
+  if (career === "") {
+    errors.push(`<li>Please select a career.</li>`);
   }
 
   if (errors.length > 0) {

@@ -15,13 +15,17 @@ export const resetDashboard = (
   completedModulesInput,
   studyDayInput,
   output,
+  career,
 ) => {
   console.log("Student Name: ", studentNameInput.value);
   console.log("Completed Modules: ", completedModulesInput.value);
   console.log("Study Day: ", studyDayInput.value);
+  console.log("Career: ", career);
+
   completedModulesInput.value = 0;
   studentNameInput.value = "";
   studyDayInput.value = "Monday";
+  careerChoice.value = "Software Developer";
   output.innerHTML = "";
   output.style.backgroundColor = "";
 };
@@ -74,6 +78,7 @@ export const displayDashboard = (
   studyPlan,
   remainingHours,
   output,
+  career,
 ) => {
   output.innerHTML = `
             <div class="dashboard-card">
@@ -101,6 +106,8 @@ export const displayDashboard = (
             <p><strong>Study Day:</strong> ${studyDay}</p>
 
             <p><strong>Today's Plan:</strong> ${studyPlan}</p>
+
+            <p><strong>Career:</strong> ${career}</p>
 
             <p><strong>Remaining Modules</strong><div id="remainingModulesList"></div></p>
 

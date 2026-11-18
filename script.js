@@ -35,6 +35,7 @@ const studyDayInput = document.getElementById("studyDay");
 const generateButton = document.getElementById("generateButton");
 const resetButton = document.getElementById("resetButton");
 const output = document.getElementById("output");
+const careerInput = document.getElementById("career");
 
 let totalModules = 10;
 
@@ -47,7 +48,7 @@ const generateDashboard = () => {
     let studentName = studentNameInput.value;
     let completedModules = Number(completedModulesInput.value);
     let studyDay = studyDayInput.value;
-    validateInputs(studentName, completedModules, studyDay);
+    validateInputs(studentName, completedModules, studyDay, career);
 
     // Creates lists from courseModules array
 
@@ -75,6 +76,8 @@ const generateDashboard = () => {
     console.log("Completed Modules: ", completedModules);
 
     console.log("Study Day: ", studyDay);
+
+    console.log("Career: ", career);
 
     let totalStudyHours = calculateStudyHours(courseModules.length);
 
@@ -111,6 +114,7 @@ const generateDashboard = () => {
       studyPlan,
       remainingHours,
       output,
+      career,
     );
 
     displayRemainingModules(remainingModules);
@@ -137,6 +141,7 @@ resetButton.addEventListener("click", () =>
     completedModulesInput,
     studyDayInput,
     output,
+    career,
   ),
 );
 
